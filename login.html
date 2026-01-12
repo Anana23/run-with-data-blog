@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Run-with-data</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<script data-goatcounter="https://runwithdata.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+		
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Run-with-data</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="#">Running</a></li>
+								<li><a href="#">Data science</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="#">
+										<input type="text" name="query" placeholder="Search" />
+									</form>
+								</li>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<section id="menu">
+
+						<!-- Search -->
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
+
+						<!-- Links -->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="#">
+											<h3>Running</h3>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Data science</h3>
+										</a>
+									</li>
+							</section>
+
+						<!-- Actions -->
+							<section>
+								<ul class="actions stacked">
+									<li><a href="#" class="button large fit">Log In</a></li>
+								</ul>
+							</section>
+
+					</section>
+
+				<input id="email" type="email" placeholder="Email" />
+<input id="password" type="password" placeholder="Password" />
+
+<button id="login">Login</button>
+<button id="signup">Sign up</button>
+
+<p id="msg"></p>
+
+<script type="module">
+  import { supabase } from './js/supabase.js'
+
+  const msg = document.getElementById('msg')
+
+  document.getElementById('login').onclick = async () => {
+    const email = email.value
+    const password = password.value
+
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password
+    })
+
+    if (error) {
+      msg.textContent = error.message
+    } else {
+      window.location.href = './dashboard.html'
+    }
+  }
+
+  document.getElementById('signup').onclick = async () => {
+    const email = email.value
+    const password = password.value
+
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        emailRedirectTo: 'https://YOUR_DOMAIN/verify.html'
+      }
+    })
+
+    msg.textContent = error
+      ? error.message
+      : 'Check your email to confirm your account'
+  }
+</script>
+
+
+				<!-- Sidebar -->
+					<section id="sidebar">
+
+						<!-- Intro -->
+							<section id="intro">
+								<header>
+									<h2 style="font-size: 1.5em;">Run-with-data</h2>
+
+								</header>
+							</section>
+
+
+
+
+						<!-- Footer -->
+							<section id="footer">
+								<ul class="icons">
+									<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+								<p class="copyright">&copy; Ana Strinic, Website design template: <a href="http://html5up.net">HTML5 UP</a>. </p>
+							</section>
+
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
