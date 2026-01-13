@@ -34,7 +34,7 @@
 
   const session = await requireAuth('./login.html')
 
-      const logoutBtn = document.getElementById('logout')
+    const logoutBtn = document.getElementById('logout')
     logoutBtn.onclick = async () => {
       const { error } = await supabase.auth.signOut()
       if (error) {
@@ -43,7 +43,7 @@
         window.location.href = './login.html' // redirect after logout
       }
     }
-
+    
   document.getElementById('email').textContent =
     session.user.email
 
@@ -107,8 +107,11 @@
 							</section>
 
 						<!-- Actions -->
-<button id="logout">Log out</button>
-
+                            <section>
+                            <ul class="actions stacked">
+                                <li><button id="logout" class="button large fit">Log Out</button></li>
+                            </ul>
+                            </section>
 					</section>
 
 				<!-- Main -->
