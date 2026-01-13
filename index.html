@@ -17,14 +17,6 @@
 		<script data-goatcounter="https://runwithdata.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 
-		<script type="module">
-		import { getSession } from './js/auth.js'
-		const session = await getSession()
-		window.location.href = session
-			? './dashboard.html'
-			: './login.html'		
-		</script>
-
 
 		<!-- Wrapper -->
 			<div id="wrapper">
