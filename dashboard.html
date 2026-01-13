@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+</head>
+<body>
+
+<h1>Dashboard</h1>
+<p>Logged in as <span id="email"></span></p>
+<button id="logout">Logout</button>
+
+<script type="module">
+  import { requireAuth } from './js/guard.js'
+  import { logout } from './js/auth.js'
+
+  const session = await requireAuth('./login.html')
+
+  document.getElementById('email').textContent =
+    session.user.email
+
+  document.getElementById('logout').onclick = async () => {
+    await logout()
+    window.location.href = './login.html'
+  }
+</script>
+
+</body>
+</html>

@@ -88,33 +88,35 @@
 <script type="module">
   import { supabase } from './js/supabase.js'
 
+  const emailInput = document.getElementById('email')
+  const passwordInput = document.getElementById('password')
+  const loginBtn = document.getElementById('login')
+  const signupBtn = document.getElementById('signup')
   const msg = document.getElementById('msg')
 
-  document.getElementById('login').onclick = async () => {
-    const email = email.value
-    const password = password.value
+  loginBtn.onclick = async () => {
+    const email = emailInput.value
+    const password = passwordInput.value
 
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password
     })
 
-    if (error) {
-      msg.textContent = error.message
-    } else {
-      window.location.href = './dashboard.html'
-    }
+    msg.textContent = error
+      ? error.message
+      : (window.location.href = './dashboard.html')
   }
 
-  document.getElementById('signup').onclick = async () => {
-    const email = email.value
-    const password = password.value
+  signupBtn.onclick = async () => {
+    const email = emailInput.value
+    const password = passwordInput.value
 
     const { error } = await supabase.auth.signUp({
       email,
       password,
       options: {
-        emailRedirectTo: 'https://YOUR_DOMAIN/verify.html'
+        emailRedirectTo: 'https://run-with-data.com/verify.html'
       }
     })
 
