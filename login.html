@@ -94,6 +94,11 @@
   const signupBtn = document.getElementById('signup')
   const msg = document.getElementById('msg')
 
+
+  loginBtn.onclick = () => {
+  console.log('Login button clicked!')
+}
+
   loginBtn.onclick = async () => {
     const email = emailInput.value
     const password = passwordInput.value
@@ -159,6 +164,15 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+            <script type="module">
+                import { getSession } from './js/auth.js'
+
+                const session = await getSession()
+                if (session) {
+                    window.location.href = './dashboard.html'
+                }
+            </script>
 
 	</body>
 </html>
