@@ -117,17 +117,7 @@
 				<!-- Main -->
 					<div id="main">
 
-                          <hr>
 
-                    <div id="app" style="display:none;">
-                        <h2>Insert text (logged-in users only)</h2>
-                        <textarea id="content" placeholder="Write something"></textarea><br>
-                        <button id="saveBtn">Save</button>
-                        <p id="status"></p>
-                    </div>
-
-                    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-                    <script src="app.js"></script>
 
 						<!-- Post -->
 							<article class="post">
@@ -141,6 +131,16 @@
 										<a href="#" class="author"><span class="name">General</span><img src="images/general.jpg" alt="" /></a>
 									</div>
 								</header>
+
+                                  <section id="app" style="display:none;">
+    <h2>Insert text</h2>
+    <textarea id="content"></textarea><br>
+    <button id="saveBtn">Save</button>
+    <p id="status"></p>
+  </section>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+  
 								<p>Learn about the motivation behind run-with-data, its purpose and my goals.</p>
 								<footer>
 									<ul class="actions">
