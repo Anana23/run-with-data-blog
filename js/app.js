@@ -57,11 +57,14 @@ async function login() {
 async function saveText() {
   const content = document.getElementById("content").value;
 
-  const { error } = await supabase
+  const { data, error } = await supabase
     .from("test_table")
     .insert({ content });
 
-  statusP.textContent = error ? error.message : "Saved successfully!";
+  console.log("Insert result:", { data, error });
+  document.getElementById("status").textContent = error
+    ? "Error: " + error.message
+    : "Saved successfully!";
 }
 
 // ---------- Event listeners ----------
