@@ -1,10 +1,9 @@
 // ---------- Supabase config ----------
 
-const SUPABASE_URL = "https://lsnwqvvhecpltfygjuhw.supabase.co";
-const SUPABASE_ANON_KEY = 'sb_publishable_KH9p68D3_PevlnQJdYn_wg_T4SoN8bW',
+
 supabase = supabaseJs.createClient(
-  SUPABASE_URL,
-  SUPABASE_ANON_KEY
+  "https://lsnwqvvhecpltfygjuhw.supabase.co",
+  'sb_publishable_KH9p68D3_PevlnQJdYn_wg_T4SoN8bW'
 );
 
 // ---------- DOM elements ----------
