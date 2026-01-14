@@ -1,7 +1,7 @@
 // ---------- Supabase config ----------
 
 
-supabase = supabaseJs.createClient(
+supabase = supabase.createClient(
   "https://lsnwqvvhecpltfygjuhw.supabase.co",
   'sb_publishable_KH9p68D3_PevlnQJdYn_wg_T4SoN8bW'
 );
