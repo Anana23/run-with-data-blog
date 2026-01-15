@@ -92,28 +92,37 @@
 
 				<!-- Sidebar -->
 					<section id="sidebar">
-					  <p>Please enter some text below to save it to the database:</p>
 
   <!-- Form to input text -->
   <form id="input-form">
-    <label for="input-text">Text to insert:</label><br>
+    <label for="input-text">Comment: </label><br>
     <textarea id="input-text" rows="4" cols="50" required></textarea><br><br>
-    <button type="submit">Submit</button>
-  </form>
 
-  <p id="status-message"></p>
+  <label for="rating">Rating: <span id="rating-value">3</span></label><br>
+  <input
+    type="range"
+    id="rating"
+    name="rating"
+    min="0"
+    max="5"
+    step="1"
+    value="3"
+  ><br><br>
 
-	
+  <button type="submit">Submit</button>
+</form>
 
-						<!-- Footer -->
-							<section id="footer">
-								<ul class="icons">
-									<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-								</ul>
-								<p class="copyright">&copy; Ana Strinic, Website design template: <a href="http://html5up.net">HTML5 UP</a>. </p>
-							</section>
+<p id="status-message"></p>
 
+				<!-- Footer -->
+					<section id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<p class="copyright">&copy; Ana Strinic, Website design template: <a href="http://html5up.net">HTML5 UP</a>. </p>
 					</section>
+
+			</section>
 
   <!-- Logout Button -->
   <button id="logout-button">Logout</button>
