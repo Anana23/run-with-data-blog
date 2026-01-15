@@ -27,7 +27,8 @@
 		<script data-goatcounter="https://runwithdata.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 
-	<!-- Wrapper -->
+	
+		<!-- Wrapper -->
 			<div id="wrapper">
 
 				<!-- Header -->
@@ -80,16 +81,54 @@
 							</section>
 
 						<!-- Actions -->
-                            <section>
-                            <ul class="actions stacked">
-                                <li><button id="logout" class="button large fit">Log Out</button></li>
-                            </ul>
-                            </section>
+							<section>
+								<ul class="actions stacked">
+									<li><a href="login.html" class="button large fit">Log In</a></li>
+								</ul>
+							</section>
+
 					</section>
 
 				<!-- Main -->
 					<div id="main">
 
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="blog_1.html">How run-with-data came about</a></h2>
+										<p></p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2015-11-01">January 11, 2026</time>
+										<a href="#" class="author"><span class="name">General</span><img src="images/general.jpg" alt="" /></a>
+									</div>
+								</header>
+
+								<p>Learn about the motivation behind run-with-data, its purpose and my goals.</p>
+								<footer>
+									<ul class="actions">
+										<li><a href="blog_1.html" class="button large">Continue Reading</a></li>
+									</ul>
+									<ul class="stats">
+										<li><a href="#">General</a></li>
+										<!-- 
+										<li><a href="#" class="icon solid fa-heart"></a></li>
+										<li><a href="#" class="icon solid fa-comment"></a></li> -->
+									</ul>
+								</footer>
+							</article>
+
+						<!-- Post -->
+
+
+						<!-- Pagination -->
+							<ul class="actions pagination">
+								<li><a href="" class="disabled button large previous">Previous Page</a></li>
+								<li><a href="#" class="button large next">Next Page</a></li>
+							</ul>
+
+					</div>
 
 				<!-- Sidebar -->
 					<section id="sidebar">
@@ -133,6 +172,30 @@
 											<img class="image" src="images/run.jpg" alt="" /></a>
 										</article>
 									</li>
+									<li>
+
+
+						<!-- About -->
+							<section class="blurb">
+								<h2>About</h2>
+								<p>Run-with-data is a personal project, combining running-related content with data science, to support and analyze my marathon training preparation.</p>
+								<!-- <ul class="actions">
+									<li><a href="#" class="button">Learn More</a></li>
+								</ul>
+							-->
+							</section>
+
+						<!-- Footer -->
+							<section id="footer">
+								<ul class="icons">
+									<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+								<p class="copyright">&copy; Ana Strinic, Website design template: <a href="http://html5up.net">HTML5 UP</a>. </p>
+							</section>
+
+					</section>
+
+			</div>
 
   <p>Please enter some text below to save it to the database:</p>
 
@@ -166,7 +229,7 @@
     });
 
     // Handle form submission
-    document.getElementById('input-form').addEventListener('submit', async (event) => {
+      document.getElementById('input-form').addEventListener('submit', async (event) => {
       event.preventDefault();  // Prevent the form from reloading the page
 
       const inputText = document.getElementById('input-text').value.trim();
@@ -216,15 +279,6 @@
     });
 
 
-							<!-- Footer -->
-							<section id="footer">
-								<ul class="icons">
-									<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-								</ul>
-								<p class="copyright">&copy; Ana Strinic, Website design template: <a href="http://html5up.net">HTML5 UP</a>. </p>
-							</section>
-
-							
   </script>
 </body>
 </html>
