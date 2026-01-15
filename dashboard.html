@@ -17,7 +17,7 @@
 <html>
 	<head>
 		<title>Run-with-data</title>
-        <p>Logged in as <span id="email"></span></p>
+        <p>Login successful.</p>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -92,14 +92,16 @@
 
 				<!-- Sidebar -->
 					<section id="sidebar">
+					  <p>Please enter some text below to save it to the database:</p>
 
-						<!-- Intro -->
-							<section id="intro">
-								<header>
-									<h2 style="font-size: 1.5em;">Run-with-data</h2>
-	
-								</header>
-							</section>
+  <!-- Form to input text -->
+  <form id="input-form">
+    <label for="input-text">Text to insert:</label><br>
+    <textarea id="input-text" rows="4" cols="50" required></textarea><br><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <p id="status-message"></p>
 
 	
 
@@ -112,17 +114,6 @@
 							</section>
 
 					</section>
-
-					  <p>Please enter some text below to save it to the database:</p>
-
-  <!-- Form to input text -->
-  <form id="input-form">
-    <label for="input-text">Text to insert:</label><br>
-    <textarea id="input-text" rows="4" cols="50" required></textarea><br><br>
-    <button type="submit">Submit</button>
-  </form>
-
-  <p id="status-message"></p>
 
   <!-- Logout Button -->
   <button id="logout-button">Logout</button>
