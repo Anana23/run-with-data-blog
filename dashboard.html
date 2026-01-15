@@ -53,7 +53,7 @@ export const supabase = createClient(
         // Insert the text into the `test_table`
         const { data, error } = await supabase
           .from('test_table')
-          .insert([{ text_column: inputText }]);  // Assuming the column is named `text_column`
+          .insert([{ content: inputText }]);  // Assuming the column is named `text_column`
 
         if (error) {
           console.error('Error inserting data:', error.message);
