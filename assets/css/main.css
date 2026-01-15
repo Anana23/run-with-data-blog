@@ -2112,17 +2112,28 @@ input, select, textarea {
 			display: none;
 		}
 
-.slider-container {
+/* Ensure proper layout of the slider and labels */
+#input-form .slider-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 300px;
+  width: 100%;
+  max-width: 300px; /* Optional: You can adjust this width */
+  margin: 0 auto;
 }
 
-.slider-label {
+#input-form .slider-label {
   font-size: 14px;
   color: #333;
+  display: inline-block;
+  width: 30px; /* Optional: You can adjust the width */
+  text-align: center;
 }
+
+#rating {
+  width: 100%;
+}
+
   
 
 	select {
