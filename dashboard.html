@@ -1,250 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.19.0/dist/supabase.min.js"></script>
 </head>
 <body>
-</html>
 
-<!DOCTYPE HTML>
+  <h2>Dashboard</h2>
+  <form id="insert-form">
+    <label for="input-text">Enter some text:</label><br>
+    <textarea id="input-text" rows="4" cols="50"></textarea><br>
+    <button type="submit">Submit</button>
+  </form>
 
-<!--
-	Future Imperfect by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Run-with-data</title>
-        <p>Logged in as <span id="email"></span></p>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
-
-		<script data-goatcounter="https://runwithdata.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
-
-
-<script type="module">
-  import { requireAuth } from './js/guard.js'
-  import { logout } from './js/auth.js'
-
-  const session = await requireAuth('./login.html')
-
-  const welcomeEl = document.getElementById('welcome')
-  welcomeEl.textContent = `Welcome, ${session.user.email}!`
-
-    const logoutBtn = document.getElementById('logout')
-    logoutBtn.onclick = async () => {
-      const { error } = await supabase.auth.signOut()
-      if (error) {
-        alert('Error logging out: ' + error.message)
-      } else {
-        window.location.href = './login.html' // redirect after logout
+  <script>
+    const supabase = createClient(
+  'https://lsnwqvvhecpltfygjuhw.supabase.co',
+  'sb_publishable_KH9p68D3_PevlnQJdYn_wg_T4SoN8bW' );
+    // Ensure user is logged in
+    supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN') {
+        console.log('User logged in:', session.user);
+      } else if (event === 'SIGNED_OUT') {
+        window.location.href = "login.html"; // Redirect if not signed in
       }
+    });
+
+    const user = supabase.auth.user();
+    if (!user) {
+      window.location.href = "login.html"; // Redirect if not signed in
     }
-    
-  document.getElementById('email').textContent =
-    session.user.email
 
-  document.getElementById('logout').onclick = async () => {
-    await logout()
-    window.location.href = './login.html'
-  }
-</script>
+    // Handle form submission
+    document.getElementById("insert-form").addEventListener("submit", async (event) => {
+      event.preventDefault(); // Prevent page reload
 
+      const inputText = document.getElementById("input-text").value;
+      if (inputText.trim() === "") {
+        alert("Please enter some text!");
+        return;
+      }
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+      try {
+        const { data, error } = await supabase
+          .from('test_table')
+          .insert([{ text_column: inputText }]);
 
-				<!-- Header -->
-					<header id="header">
-						<h1><a href="index.html">Run-with-data</a></h1>
-						<nav class="links">
-							<ul>
-								<li><a href="#">Running</a></li>
-								<li><a href="#">Data science</a></li>
-							</ul>
-						</nav>
-						<nav class="main">
-							<ul>
-								<li class="search">
-									<a class="fa-search" href="#search">Search</a>
-									<form id="search" method="get" action="#">
-										<input type="text" name="query" placeholder="Search" />
-									</form>
-								</li>
-								<li class="menu">
-									<a class="fa-bars" href="#menu">Menu</a>
-								</li>
-							</ul>
-						</nav>
-					</header>
+        if (error) {
+          console.error("Error inserting data:", error.message);
+          alert("Error submitting text. Please try again.");
+        } else {
+          console.log("Text inserted:", data);
+          alert("Text successfully submitted!");
+          document.getElementById("input-text").value = ''; // Clear textarea
+        }
+      } catch (error) {
+        console.error("Unexpected error:", error.message);
+        alert("Something went wrong. Please try again.");
+      }
+    });
+  </script>
 
-				<!-- Menu -->
-					<section id="menu">
-
-						<!-- Search -->
-							<section>
-								<form class="search" method="get" action="#">
-									<input type="text" name="query" placeholder="Search" />
-								</form>
-							</section>
-
-						<!-- Links -->
-							<section>
-								<ul class="links">
-									<li>
-										<a href="#">
-											<h3>Running</h3>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<h3>Data science</h3>
-										</a>
-									</li>
-							</section>
-
-						<!-- Actions -->
-                            <section>
-                            <ul class="actions stacked">
-                                <li><button id="logout" class="button large fit">Log Out</button></li>
-                            </ul>
-                            </section>
-					</section>
-
-				<!-- Main -->
-					<div id="main">
-
-
-
-						<!-- Post -->
-							<article class="post">
-								<header>
-									<div class="title">
-										<h2><a href="blog_1.html">How run-with-data came about</a></h2>
-										<p></p>
-									</div>
-									<div class="meta">
-										<time class="published" datetime="2015-11-01">January 11, 2026</time>
-										<a href="#" class="author"><span class="name">General</span><img src="images/general.jpg" alt="" /></a>
-									</div>
-								</header>
-
-                                  <section id="app" style="display:none;">
-    <h2>Insert text</h2>
-    <textarea id="content"></textarea><br>
-    <button id="saveBtn">Save</button>
-    <p id="status"></p>
-  </section>
-
-  
-								<p>Learn about the motivation behind run-with-data, its purpose and my goals.</p>
-								<footer>
-									<ul class="actions">
-										<li><a href="blog_1.html" class="button large">Continue Reading</a></li>
-									</ul>
-									<ul class="stats">
-										<li><a href="#">General</a></li>
-										<!-- 
-										<li><a href="#" class="icon solid fa-heart"></a></li>
-										<li><a href="#" class="icon solid fa-comment"></a></li> -->
-									</ul>
-								</footer>
-							</article>
-
-						<!-- Post -->
-
-
-						<!-- Pagination -->
-							<ul class="actions pagination">
-								<li><a href="" class="disabled button large previous">Previous Page</a></li>
-								<li><a href="#" class="button large next">Next Page</a></li>
-							</ul>
-
-					</div>
-
-				<!-- Sidebar -->
-					<section id="sidebar">
-
-						<!-- Intro -->
-							<section id="intro">
-								<header>
-									<h2 style="font-size: 1.5em;">Run-with-data</h2>
-	
-								</header>
-							</section>
-
-						<!-- Posts List -->
-							<section>
-								<ul class="posts">
-									<li>
-										<article>
-											<header>
-												<h3><a href="blog_1.html">How run-with-data came about</a></h3>
-												<time class="published" datetime="2015-10-20">January 11, 2026</time>
-											</header>
-											<a href="blog_1.html" class="image"><img src="images/general.jpg" alt="" /></a>
-										</article>
-									</li>
-									<li>
-										<article>
-											<header>
-												<h3> Structure of run-with-data </h3>
-												<!-- <h3><a href="blog_2.html">Structure of run-with-data</a></h3> -->  
-												<time class="published">tba</time>
-											</header>
-											<img class="image" src="images/data.jpg" alt="" /></a>
-										</article>
-									</li>
-									<li>
-										<article>
-											<header>
-												<h3> Marathon preparation </h3>
-												<time class="published" >tba</time>
-											</header>
-											<img class="image" src="images/run.jpg" alt="" /></a>
-										</article>
-									</li>
-									<li>
-
-
-						<!-- About -->
-							<section class="blurb">
-								<h2>About</h2>
-								<p>Run-with-data is a personal project, combining running-related content with data science, to support and analyze my marathon training preparation.</p>
-								<!-- <ul class="actions">
-									<li><a href="#" class="button">Learn More</a></li>
-								</ul>
-							-->
-							</section>
-
-						<!-- Footer -->
-							<section id="footer">
-								<ul class="icons">
-									<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-								</ul>
-								<p class="copyright">&copy; Ana Strinic, Website design template: <a href="http://html5up.net">HTML5 UP</a>. </p>
-							</section>
-
-					</section>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="js/app.js"></script>
-  
-
-	</body>
+</body>
 </html>

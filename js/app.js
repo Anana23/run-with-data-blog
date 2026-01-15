@@ -6,74 +6,31 @@ supabase = supabase.createClient(
   'sb_publishable_KH9p68D3_PevlnQJdYn_wg_T4SoN8bW'
 );
 
-// ---------- DOM elements ----------
-const appSection = document.getElementById("app");
-const statusP = document.getElementById("status");
-const loginBtn = document.getElementById("loginBtn");
-const saveBtn = document.getElementById("saveBtn");
+// Initialize client using the CDN global
+supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-// ---------- Check auth & toggle UI ----------
-async function updateUI() {
-  const {
-    data: { session }
-  } = await supabase.auth.getSession();
-
-  if (session) {
-    appSection.style.display = "block";
-  } else {
-    appSection.style.display = "none";
+async function init() {
+  // Check if user is logged in
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) {
+    // Redirect to login if not logged in
+    window.location.href = "login.html";
+    return;
   }
-}
 
-// ---------- Login / signup ----------
-async function login() {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+  // Add event listener for save
+  const saveBtn = document.getElementById("saveBtn");
+  const statusP = document.getElementById("status");
+  saveBtn.addEventListener("click", async () => {
+    const content = document.getElementById("content").value;
+    if (!content) return;
 
-  // Try login
-  let { error } = await supabase.auth.signInWithPassword({
-    email,
-    password
+    const { data, error } = await supabase
+      .from("test_table")
+      .insert({ content });
+
+    statusP.textContent = error ? error.message : "Saved successfully!";
   });
-
-  // If user doesn't exist, sign up
-  if (error) {
-    const { error: signUpError } = await supabase.auth.signUp({
-      email,
-      password
-    });
-
-    if (signUpError) {
-      alert(signUpError.message);
-      return;
-    }
-  }
-
-  await updateUI();
 }
 
-// ---------- Insert text ----------
-async function saveText() {
-  const content = document.getElementById("content").value;
-
-  const { data, error } = await supabase
-    .from("test_table")
-    .insert({ content });
-
-  console.log("Insert result:", { data, error });
-  document.getElementById("status").textContent = error
-    ? "Error: " + error.message
-    : "Saved successfully!";
-}
-
-// ---------- Event listeners ----------
-loginBtn.addEventListener("click", login);
-saveBtn.addEventListener("click", saveText);
-
-// ---------- React to auth changes ----------
-supabase.auth.onAuthStateChange(() => {
-  updateUI();
-});
-
-// ---------- Initial check on page load ----------
-updateUI();
+init();
