@@ -1,12 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Supabase Dashboard</title>
+  <title>Dashboard</title>
 </head>
 <body>
-  <h1>Supabase Dashboard</h1>
+</html>
+
+<!DOCTYPE HTML>
+
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Run-with-data</title>
+        <p>Logged in as <span id="email"></span></p>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<script data-goatcounter="https://runwithdata.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+	<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Run-with-data</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="#">Running</a></li>
+								<li><a href="#">Data science</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="#">
+										<input type="text" name="query" placeholder="Search" />
+									</form>
+								</li>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<section id="menu">
+
+						<!-- Search -->
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
+
+						<!-- Links -->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="#">
+											<h3>Running</h3>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Data science</h3>
+										</a>
+									</li>
+							</section>
+
+						<!-- Actions -->
+                            <section>
+                            <ul class="actions stacked">
+                                <li><button id="logout" class="button large fit">Log Out</button></li>
+                            </ul>
+                            </section>
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+
+				<!-- Sidebar -->
+					<section id="sidebar">
+
+						<!-- Intro -->
+							<section id="intro">
+								<header>
+									<h2 style="font-size: 1.5em;">Run-with-data</h2>
+	
+								</header>
+							</section>
+
+						<!-- Posts List -->
+							<section>
+								<ul class="posts">
+									<li>
+										<article>
+											<header>
+												<h3><a href="blog_1.html">How run-with-data came about</a></h3>
+												<time class="published" datetime="2015-10-20">January 11, 2026</time>
+											</header>
+											<a href="blog_1.html" class="image"><img src="images/general.jpg" alt="" /></a>
+										</article>
+									</li>
+									<li>
+										<article>
+											<header>
+												<h3> Structure of run-with-data </h3>
+												<!-- <h3><a href="blog_2.html">Structure of run-with-data</a></h3> -->  
+												<time class="published">tba</time>
+											</header>
+											<img class="image" src="images/data.jpg" alt="" /></a>
+										</article>
+									</li>
+									<li>
+										<article>
+											<header>
+												<h3> Marathon preparation </h3>
+												<time class="published" >tba</time>
+											</header>
+											<img class="image" src="images/run.jpg" alt="" /></a>
+										</article>
+									</li>
 
   <p>Please enter some text below to save it to the database:</p>
 
@@ -77,6 +203,7 @@
       }
     });
 
+	
     // Logout function
     document.getElementById('logout-button').addEventListener('click', async () => {
       const { error } = await supabase.auth.signOut();
@@ -88,6 +215,16 @@
       }
     });
 
+
+							<!-- Footer -->
+							<section id="footer">
+								<ul class="icons">
+									<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+								<p class="copyright">&copy; Ana Strinic, Website design template: <a href="http://html5up.net">HTML5 UP</a>. </p>
+							</section>
+
+							
   </script>
 </body>
 </html>
