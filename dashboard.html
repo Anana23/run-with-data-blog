@@ -1,67 +1,82 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard</title>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.19.0/dist/supabase.min.js"></script>
+  <title>Supabase Dashboard</title>
 </head>
 <body>
+  <h1>Supabase Dashboard</h1>
 
-  <h2>Dashboard</h2>
-  <form id="insert-form">
-    <label for="input-text">Enter some text:</label><br>
-    <textarea id="input-text" rows="4" cols="50"></textarea><br>
+  <p>Please enter some text below to save it to the database:</p>
+
+  <!-- Form to input text -->
+  <form id="input-form">
+    <label for="input-text">Text to insert:</label><br>
+    <textarea id="input-text" rows="4" cols="50" required></textarea><br><br>
     <button type="submit">Submit</button>
   </form>
 
-  <script>
-    const supabase = createClient(
+  <p id="status-message"></p>
+
+  <!-- Importing Supabase JS SDK as an ES Module -->
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+    // Initialize the Supabase client
+export const supabase = createClient(
   'https://lsnwqvvhecpltfygjuhw.supabase.co',
-  'sb_publishable_KH9p68D3_PevlnQJdYn_wg_T4SoN8bW' );
-    // Ensure user is logged in
+  'sb_publishable_KH9p68D3_PevlnQJdYn_wg_T4SoN8bW'
+)
+    // Check if the user is authenticated
     supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_IN') {
-        console.log('User logged in:', session.user);
-      } else if (event === 'SIGNED_OUT') {
+      if (event === 'SIGNED_OUT' || !session) {
         window.location.href = "login.html"; // Redirect if not signed in
       }
     });
 
-    const user = supabase.auth.user();
-    if (!user) {
-      window.location.href = "login.html"; // Redirect if not signed in
-    }
-
     // Handle form submission
-    document.getElementById("insert-form").addEventListener("submit", async (event) => {
-      event.preventDefault(); // Prevent page reload
+    document.getElementById('input-form').addEventListener('submit', async (event) => {
+      event.preventDefault();  // Prevent the form from reloading the page
 
-      const inputText = document.getElementById("input-text").value;
-      if (inputText.trim() === "") {
-        alert("Please enter some text!");
+      const inputText = document.getElementById('input-text').value.trim();
+      const statusMessage = document.getElementById('status-message');
+
+      if (inputText === '') {
+        statusMessage.textContent = 'Please enter some text!';
+        statusMessage.style.color = 'red';
         return;
       }
 
       try {
+        // Insert the text into the `test_table`
         const { data, error } = await supabase
           .from('test_table')
-          .insert([{ text_column: inputText }]);
+          .insert([{ text_column: inputText }]);  // Assuming the column is named `text_column`
 
         if (error) {
-          console.error("Error inserting data:", error.message);
-          alert("Error submitting text. Please try again.");
+          console.error('Error inserting data:', error.message);
+          statusMessage.textContent = 'Error submitting text. Please try again.';
+          statusMessage.style.color = 'red';
         } else {
-          console.log("Text inserted:", data);
-          alert("Text successfully submitted!");
-          document.getElementById("input-text").value = ''; // Clear textarea
+          console.log('Text inserted:', data);
+          statusMessage.textContent = 'Text successfully submitted!';
+          statusMessage.style.color = 'green';
+
+          // Clear the textarea
+          document.getElementById('input-text').value = '';
         }
       } catch (error) {
-        console.error("Unexpected error:", error.message);
-        alert("Something went wrong. Please try again.");
+        console.error('Unexpected error:', error.message);
+        statusMessage.textContent = 'Something went wrong. Please try again.';
+        statusMessage.style.color = 'red';
       }
     });
-  </script>
 
+  </script>
 </body>
 </html>
+
+
+  
