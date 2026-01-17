@@ -1,191 +1,133 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Dashboard</title>
+    <meta charset="UTF-8">
+    <title>Run-with-data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
 </head>
-<body>
-</html>
+<body class="is-preload">
 
-<!DOCTYPE HTML>
+    <!-- Wrapper -->
+    <div id="wrapper">
 
-<!--
-	Future Imperfect by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Run-with-data</title>
-        <p>Login successful.</p>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+        <!-- Header -->
+        <header id="header">
+            <h1><a href="index.html">Run-with-data</a></h1>
+            <nav class="links">
+                <ul>
+                    <li><a href="#">Running</a></li>
+                    <li><a href="#">Data science</a></li>
+                </ul>
+            </nav>
+            <nav class="main">
+                <ul>
+                    <li class="search">
+                        <a class="fa-search" href="#search">Search</a>
+                        <form id="search" method="get" action="#">
+                            <input type="text" name="query" placeholder="Search" />
+                        </form>
+                    </li>
+                    <li class="menu">
+                        <a class="fa-bars" href="#menu">Menu</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
-		<script data-goatcounter="https://runwithdata.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+        <!-- Menu -->
+        <section id="menu">
+            <!-- Search -->
+            <section>
+                <form class="search" method="get" action="#">
+                    <input type="text" name="query" placeholder="Search" />
+                </form>
+            </section>
 
-	
-		<!-- Wrapper -->
-			<div id="wrapper">
+            <!-- Links -->
+            <section>
+                <ul class="links">
+                    <li><a href="#"><h3>Running</h3></a></li>
+                    <li><a href="#"><h3>Data science</h3></a></li>
+                </ul>
+            </section>
 
-				<!-- Header -->
-					<header id="header">
-						<h1><a href="index.html">Run-with-data</a></h1>
-						<nav class="links">
-							<ul>
-								<li><a href="#">Running</a></li>
-								<li><a href="#">Data science</a></li>
-							</ul>
-						</nav>
-						<nav class="main">
-							<ul>
-								<li class="search">
-									<a class="fa-search" href="#search">Search</a>
-									<form id="search" method="get" action="#">
-										<input type="text" name="query" placeholder="Search" />
-									</form>
-								</li>
-								<li class="menu">
-									<a class="fa-bars" href="#menu">Menu</a>
-								</li>
-							</ul>
-						</nav>
-					</header>
+            <!-- Actions -->
+            <section>
+                <ul class="actions stacked">
+                    <li><a href="login.html" class="button large fit">Log In</a></li>
+                </ul>
+            </section>
+        </section>
 
-				<!-- Menu -->
-					<section id="menu">
+        <!-- Main Content -->
+        <div id="main" class="inner">
 
-						<!-- Search -->
-							<section>
-								<form class="search" method="get" action="#">
-									<input type="text" name="query" placeholder="Search" />
-								</form>
-							</section>
+            <!-- Dashboard Boxes -->
+            <div class="boxes-vertical">
+                <a href="pre_run.html" class="box link-box">Pre run</a>
+                <a href="post_run.html" class="box link-box">Post run</a>
+                <a href="post_workout.html" class="box link-box">Workout</a>
+                <button id="logout-button" class="button large fit">Logout</button>
+            </div>
 
-						<!-- Links -->
-							<section>
-								<ul class="links">
-									<li>
-										<a href="#">
-											<h3>Running</h3>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<h3>Data science</h3>
-										</a>
-									</li>
-							</section>
+        </div>
 
-						<!-- Actions -->
-							<section>
-								<ul class="actions stacked">
-									<li><a href="login.html" class="button large fit">Log In</a></li>
-								</ul>
-							</section>
-
-					</section>
-
-
-				<!-- Sidebar -->
-					<section id="sidebar">
-
-<a href="pre_run.html" id="pre_run" class="menu-button">Pre run</a>
-
-<a href="post_run.html" id="post_run" class="menu-button">Post run</a>
-
-<a href="post_workout.html" id="workout" class="menu-button">Workout</a>
-
+        <!-- Footer -->
+        <section id="footer">
+            <ul class="icons">
+                <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+            </ul>
+            <p class="copyright">
+                &copy; Ana Strinic, Website design template: <a href="http://html5up.net">HTML5 UP</a>.
+            </p>
+        </section>
 
     </div>
 
-				<!-- Footer -->
-					<section id="footer">
-						<ul class="icons">
-							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
-						<p class="copyright">&copy; Ana Strinic, Website design template: <a href="http://html5up.net">HTML5 UP</a>. </p>
-					</section>
+    <!-- Scripts -->
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
-			</section>
+        // Initialize Supabase
+        const supabase = createClient(
+            'https://lsnwqvvhecpltfygjuhw.supabase.co',
+            'sb_publishable_KH9p68D3_PevlnQJdYn_wg_T4SoN8bW'
+        );
 
-  <!-- Logout Button -->
-  <button id="logout-button">Logout</button>
+        // Logout functionality
+        document.getElementById('logout-button').addEventListener('click', async () => {
+            const { error } = await supabase.auth.signOut();
+            if (error) {
+                console.error('Error logging out:', error.message);
+                alert('Error logging out. Please try again.');
+            } else {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
 
-			</div>
-
-
-  <!-- Importing Supabase JS SDK as an ES Module -->
-  <script type="module">
-    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-
-    // Initialize the Supabase client
-	export const supabase = createClient(
-  'https://lsnwqvvhecpltfygjuhw.supabase.co',
-  'sb_publishable_KH9p68D3_PevlnQJdYn_wg_T4SoN8bW'
-)
-
-    // Check if the user is authenticated
-    supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_OUT' || !session) {
-        window.location.href = "login.html"; // Redirect if not signed in
-      }
-    });
-
-    // Handle form submission
-      document.getElementById('input-form').addEventListener('submit', async (event) => {
-      event.preventDefault();  // Prevent the form from reloading the page
-
-      const inputText = document.getElementById('input-text').value.trim();
-      const statusMessage = document.getElementById('status-message');
-
-      if (inputText === '') {
-        statusMessage.textContent = 'Please enter some text!';
-        statusMessage.style.color = 'red';
-        return;
-      }
-
-      try {
-        // Insert the text into the `test_table`
-        const { data, error } = await supabase
-          .from('test_table')
-          .insert([{ content: inputText }]);  // Assuming the column is named `text_column`
-
-        if (error) {
-          console.error('Error inserting data:', error.message);
-          statusMessage.textContent = 'Error submitting text. Please try again.';
-          statusMessage.style.color = 'red';
-        } else {
-          console.log('Text inserted:', data);
-          statusMessage.textContent = 'Text successfully submitted!';
-          statusMessage.style.color = 'green';
-
-          // Clear the textarea
-          document.getElementById('input-text').value = '';
+    <style>
+        /* Centered vertical boxes in main content */
+        .boxes-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5em;
+            max-width: 400px;
+            margin: 2em auto; /* center horizontally and give top/bottom spacing */
+            text-align: center;
         }
-      } catch (error) {
-        console.error('Unexpected error:', error.message);
-        statusMessage.textContent = 'Something went wrong. Please try again.';
-        statusMessage.style.color = 'red';
-      }
-    });
 
-	
-    // Logout function
-    document.getElementById('logout-button').addEventListener('click', async () => {
-      const { error } = await supabase.auth.signOut();
-      if (error) {
-        console.error('Error logging out:', error.message);
-        alert('Error logging out. Please try again.');
-      } else {
-        window.location.href = 'login.html'; // Redirect to login page after logout
-      }
-    });
+        .link-box {
+            padding: 2em;
+            font-size: 1.2em;
+            text-decoration: none;
+        }
 
+        #logout-button {
+            margin-top: 1em;
+        }
+    </style>
 
-  </script>
 </body>
 </html>
