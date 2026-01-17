@@ -2281,7 +2281,24 @@ input, select, textarea {
 	}
 
 /* Icon */
+.link-box {
+    text-align: center;
+    padding: 2.5em;
+    font-size: 1.3em;
+    text-decoration: none;
+}
 
+.link-box:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.boxes-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em; /* space between boxes */
+    max-width: 500px;
+    margin: 0 auto; /* center horizontally */
+}
 	.icon {
 		text-decoration: none;
 		border-bottom: none;
