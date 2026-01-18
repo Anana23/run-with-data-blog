@@ -2127,6 +2127,28 @@ input, select, textarea {
             cursor: pointer;
         }
 
+		.slider-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* spacing between items */
+  margin-bottom: 1rem;
+}
+
+.slider-row label {
+  min-width: 100px; /* make labels aligned */
+}
+
+.slider-row .slider-min,
+.slider-row .slider-max {
+  width: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.slider-row input[type="range"] {
+  flex: 1; /* take up remaining space */
+}
+
 /* Ensure proper layout of the slider and labels */
 #input-form .slider-container {
   display: flex;
@@ -3547,6 +3569,20 @@ input, select, textarea {
 			}
 
 	}
+
+	input[type="checkbox"] {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+/* Optional: style the labels nicely */
+input[type="checkbox"] + label {
+  display: inline-block;
+  cursor: pointer;
+}
 
 /* Footer */
 
