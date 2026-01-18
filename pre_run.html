@@ -86,58 +86,95 @@
 
   <!-- Motivation -->
   <label for="motivation">Motivation</label>
-  <div class="slider-container">
-    <span class="slider-label">0</span>
-    <input type="range" id="motivation" name="motivation" min="0" max="5" step="1" value="3" required>
-    <span class="slider-label">5</span>
-  </div>
+  <input type="range" id="motivation" name="motivation" min="0" max="5" step="1" value="3" required>
 
   <!-- Energy -->
   <label for="energy">Energy</label>
-  <div class="slider-container">
-    <span class="slider-label">0</span>
-    <input type="range" id="energy" name="energy" min="0" max="5" step="1" value="3" required>
-    <span class="slider-label">5</span>
-  </div>
+  <input type="range" id="energy" name="energy" min="0" max="5" step="1" value="3" required>
 
   <!-- Hip pain -->
   <label for="hip_pain">Hip pain</label>
-  <div class="slider-container">
-    <span class="slider-label">0</span>
-    <input type="range" id="hip_pain" name="hip_pain" min="0" max="5" step="1" value="3" required>
-    <span class="slider-label">5</span>
-  </div>
+  <input type="range" id="hip_pain" name="hip_pain" min="0" max="5" step="1" value="3" required>
 
   <!-- Knee pain -->
   <label for="knee_pain">Knee pain</label>
-  <div class="slider-container">
-    <span class="slider-label">0</span>
-    <input type="range" id="knee_pain" name="knee_pain" min="0" max="5" step="1" value="3" required>
-    <span class="slider-label">5</span>
-  </div>
+  <input type="range" id="knee_pain" name="knee_pain" min="0" max="5" step="1" value="3" required>
 
   <!-- Digestive problems -->
-<p>Digestive problems (select all that apply):</p>
-
-<label>
-  <input type="checkbox" name="digestive_issues[]" value="diarrhea">
-  Diarrhea
-</label><br>
-<label>
-  <input type="checkbox" name="digestive_issues[]" value="constipation">
-  Constipation
-</label><br>
-<label>
-  <input type="checkbox" name="digestive_issues[]" value="pain">
-  Pain
-</label><br>
-<label>
-  <input type="checkbox" name="digestive_issues[]" value="stomach_issues">
-  Stomach issues
-</label>
-  <br><br>
+  <p>Digestive problems (select all that apply):</p>
+  <label><input type="checkbox" name="digestive_issues[]" value="diarrhea"> Diarrhea</label><br>
+  <label><input type="checkbox" name="digestive_issues[]" value="constipation"> Constipation</label><br>
+  <label><input type="checkbox" name="digestive_issues[]" value="pain"> Pain</label><br>
+  <label><input type="checkbox" name="digestive_issues[]" value="stomach_issues"> Stomach issues</label><br>
 
   <button type="submit">Submit</button>
+</form>
+
+<button id="logout-button">Logout</button>
+
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+const supabase = createClient(
+  'https://lsnwqvvhecpltfygjuhw.supabase.co',
+  'sb_publishable_KH9p68D3_PevlnQJdYn_wg_T4SoN8bW'
+);
+
+// Redirect if not logged in
+supabase.auth.onAuthStateChange((event, session) => {
+  if (event === 'SIGNED_OUT' || !session) {
+    window.location.href = "login.html";
+  }
+});
+
+// Form submission
+document.getElementById('input-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.target;
+
+  // Get the logged-in user
+  const { data: { user }, error: userError } = await supabase.auth.getUser();
+  if (userError || !user) {
+    alert("User not logged in");
+    return;
+  }
+
+  // Get all checked digestive issues
+  const issues = Array.from(
+    form.querySelectorAll('input[name="digestive_issues[]"]:checked')
+  ).map(cb => cb.value);
+
+  // Prepare data
+  const data = {
+    user_id: user.id,
+    motivation: parseInt(form.motivation.value),
+    energy: parseInt(form.energy.value),
+    hip_pain: parseInt(form.hip_pain.value),
+    knee_pain: parseInt(form.knee_pain.value),
+    digestive_issues: issues
+  };
+
+  // Insert into Supabase
+  const { error } = await supabase.from('pre_run_data').insert([data]);
+  if (error) {
+    alert(error.message);
+  } else {
+    alert("Entry saved!");
+    form.reset();
+  }
+});
+
+// Logout
+document.getElementById('logout-button').addEventListener('click', async () => {
+  const { error } = await supabase.auth.signOut();
+  if (error) {
+    alert("Logout failed: " + error.message);
+  } else {
+    window.location.href = 'login.html';
+  }
+});
+</script>
+
 
 </form>
 
@@ -153,84 +190,8 @@
 
 			</section>
 
-  <!-- Logout Button -->
-  <button id="logout-button">Logout</button>
-
 			</div>
 
-
-  <!-- Importing Supabase JS SDK as an ES Module -->
-  <script type="module">
-    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-
-    // Initialize the Supabase client
-	export const supabase = createClient(
-  'https://lsnwqvvhecpltfygjuhw.supabase.co',
-  'sb_publishable_KH9p68D3_PevlnQJdYn_wg_T4SoN8bW'
-)
-
-    // Check if the user is authenticated
-    supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_OUT' || !session) {
-        window.location.href = "login.html"; // Redirect if not signed in
-      }
-    });
-
-    const issues = Array.from(
-  document.querySelectorAll('input[name="digestive_issues[]"]:checked')
-).map(cb => cb.value)
-
-const { error } = await supabase
-  .from('pre_run_data')
-  .insert({
-    user_id: user.id,
-    motivation: form.motivation.value,
-    energy: form.energy.value,
-    hip_pain: form.hip_pain.value,
-    knee_pain: form.knee_pain.value,
-    digestive_issues: issues
-  })
-
-    // Handle form submission
-  document.getElementById('input-form').addEventListener('submit', async (e) => {
-  e.preventDefault()
-
-  const form = e.target
-  const {
-  data: { user }
-} = await supabase.auth.getUser()
-  const data = {
-    user_id: user.id,
-    motivation: form.motivation.value,
-    energy: form.energy.value,
-    hip_pain: form.hip_pain.value,
-    knee_pain: form.knee_pain.value,
-    digestive_issue: form.digestive_issue.value
-  }
-
-  const { error } = await supabase
-    .from('pre_run_data')
-    .insert(data)
-
-  if (error) {
-    alert(error.message)
-  } else {
-    alert('Entry saved')
-    form.reset()
-  }
-    });
-
-	
-    // Logout function
-    document.getElementById('logout-button').addEventListener('click', async () => {
-      const { error } = await supabase.auth.signOut();
-      if (error) {
-        console.error('Error logging out:', error.message);
-        alert('Error logging out. Please try again.');
-      } else {
-        window.location.href = 'login.html'; // Redirect to login page after logout
-      }
-    });
 
 
   </script>
