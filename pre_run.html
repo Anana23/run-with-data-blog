@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Dashboard</title>
-</head>
-<body>
-</html>
-
 <!DOCTYPE HTML>
-
 <!--
 	Future Imperfect by HTML5 UP
 	html5up.net | @ajlkn
@@ -17,7 +7,6 @@
 <html>
 	<head>
 		<title>Run-with-data</title>
-        <p>Login successful.</p>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -93,30 +82,63 @@
 				<!-- Sidebar -->
 					<section id="sidebar">
 
-  <!-- Form to input text -->
-  <form id="input-form">
-    <label for="input-text">Comment: </label><br>
-    <textarea id="input-text" rows="4" cols="50" required></textarea><br><br>
+<form id="input-form">
 
-	  <!-- Slider with values -->
-  <label for="rating">Rating: <span id="rating-value"></span></label><br>
-  
- <div class="slider-container">
+  <!-- Motivation -->
+  <label for="motivation">Motivation</label>
+  <div class="slider-container">
     <span class="slider-label">0</span>
-    <input
-      type="range"
-      id="rating"
-      name="rating"
-      min="0"
-      max="5"
-      step="1"
-      value="3"
-    >
+    <input type="range" id="motivation" name="motivation" min="0" max="5" step="1" value="3" required>
     <span class="slider-label">5</span>
   </div>
+
+  <!-- Energy -->
+  <label for="energy">Energy</label>
+  <div class="slider-container">
+    <span class="slider-label">0</span>
+    <input type="range" id="energy" name="energy" min="0" max="5" step="1" value="3" required>
+    <span class="slider-label">5</span>
+  </div>
+
+  <!-- Hip pain -->
+  <label for="hip_pain">Hip pain</label>
+  <div class="slider-container">
+    <span class="slider-label">0</span>
+    <input type="range" id="hip_pain" name="hip_pain" min="0" max="5" step="1" value="3" required>
+    <span class="slider-label">5</span>
+  </div>
+
+  <!-- Knee pain -->
+  <label for="knee_pain">Knee pain</label>
+  <div class="slider-container">
+    <span class="slider-label">0</span>
+    <input type="range" id="knee_pain" name="knee_pain" min="0" max="5" step="1" value="3" required>
+    <span class="slider-label">5</span>
+  </div>
+
+  <!-- Digestive problems -->
+<p>Digestive problems (select all that apply):</p>
+
+<label>
+  <input type="checkbox" name="digestive_issues[]" value="diarrhea">
+  Diarrhea
+</label><br>
+<label>
+  <input type="checkbox" name="digestive_issues[]" value="constipation">
+  Constipation
+</label><br>
+<label>
+  <input type="checkbox" name="digestive_issues[]" value="pain">
+  Pain
+</label><br>
+<label>
+  <input type="checkbox" name="digestive_issues[]" value="stomach_issues">
+  Stomach issues
+</label>
   <br><br>
 
   <button type="submit">Submit</button>
+
 </form>
 
 <p id="status-message"></p>
@@ -154,42 +176,48 @@
       }
     });
 
+    const issues = Array.from(
+  document.querySelectorAll('input[name="digestive_issues[]"]:checked')
+).map(cb => cb.value)
+
+const { error } = await supabase
+  .from('pre_run_data')
+  .insert({
+    user_id: user.id,
+    motivation: form.motivation.value,
+    energy: form.energy.value,
+    hip_pain: form.hip_pain.value,
+    knee_pain: form.knee_pain.value,
+    digestive_issues: issues
+  })
+
     // Handle form submission
-      document.getElementById('input-form').addEventListener('submit', async (event) => {
-      event.preventDefault();  // Prevent the form from reloading the page
+  document.getElementById('input-form').addEventListener('submit', async (e) => {
+  e.preventDefault()
 
-      const inputText = document.getElementById('input-text').value.trim();
-      const statusMessage = document.getElementById('status-message');
+  const form = e.target
+  const {
+  data: { user }
+} = await supabase.auth.getUser()
+  const data = {
+    user_id: user.id,
+    motivation: form.motivation.value,
+    energy: form.energy.value,
+    hip_pain: form.hip_pain.value,
+    knee_pain: form.knee_pain.value,
+    digestive_issue: form.digestive_issue.value
+  }
 
-      if (inputText === '') {
-        statusMessage.textContent = 'Please enter some text!';
-        statusMessage.style.color = 'red';
-        return;
-      }
+  const { error } = await supabase
+    .from('pre_run_data')
+    .insert(data)
 
-      try {
-        // Insert the text into the `test_table`
-        const { data, error } = await supabase
-          .from('test_table')
-          .insert([{ content: inputText }]);  // Assuming the column is named `text_column`
-
-        if (error) {
-          console.error('Error inserting data:', error.message);
-          statusMessage.textContent = 'Error submitting text. Please try again.';
-          statusMessage.style.color = 'red';
-        } else {
-          console.log('Text inserted:', data);
-          statusMessage.textContent = 'Text successfully submitted!';
-          statusMessage.style.color = 'green';
-
-          // Clear the textarea
-          document.getElementById('input-text').value = '';
-        }
-      } catch (error) {
-        console.error('Unexpected error:', error.message);
-        statusMessage.textContent = 'Something went wrong. Please try again.';
-        statusMessage.style.color = 'red';
-      }
+  if (error) {
+    alert(error.message)
+  } else {
+    alert('Entry saved')
+    form.reset()
+  }
     });
 
 	
