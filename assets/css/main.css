@@ -2604,6 +2604,7 @@ input, select, textarea {
 				ul.icons li > * .label {
 					display: none;
 				}
+				
 
 /* Posts */
 
@@ -3551,6 +3552,7 @@ input, select, textarea {
 
 	#footer .icons {
 		color: #aaaaaa;
+		font-size: 0.8em;
 	}
 
 	#footer .copyright {
