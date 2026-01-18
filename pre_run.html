@@ -102,10 +102,17 @@
 
   <!-- Digestive problems -->
 <p>Digestive problems (select all that apply):</p>
-<label><input type="checkbox" name="digestive_issues[]" value="diarrhea"> Diarrhea</label><br>
-<label><input type="checkbox" name="digestive_issues[]" value="constipation"> Constipation</label><br>
-<label><input type="checkbox" name="digestive_issues[]" value="pain"> Pain</label><br>
-<label><input type="checkbox" name="digestive_issues[]" value="stomach_issues"> Stomach issues</label>
+<input type="checkbox" id="diarrhea" name="digestive_issues[]" value="diarrhea">
+<label for="diarrhea">Diarrhea</label><br>
+
+<input type="checkbox" id="constipation" name="digestive_issues[]" value="constipation">
+<label for="constipation">Constipation</label><br>
+
+<input type="checkbox" id="pain" name="digestive_issues[]" value="pain">
+<label for="pain">Pain</label><br>
+
+<input type="checkbox" id="stomach_issues" name="digestive_issues[]" value="stomach_issues">
+<label for="stomach_issues">Stomach issues</label><br>
 
   <button type="submit">Submit</button>
 </form>
