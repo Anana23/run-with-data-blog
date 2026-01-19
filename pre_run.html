@@ -84,6 +84,9 @@
 
 <form id="input-form">
 
+
+<form id="input-form">
+
   <!-- Motivation -->
   <div class="slider-row">
     <label for="motivation">Motivation:</label>
@@ -127,9 +130,25 @@
     </div>
   </div>
 
+  <!-- Digestive problems -->
+<p>Digestive problems (select all that apply):</p>
+<input type="checkbox" id="no" name="digestive_issues[]" value="no">
+<label for="no">No</label><br>
+
+<input type="checkbox" id="diarrhea" name="digestive_issues[]" value="diarrhea">
+<label for="diarrhea">Diarrhea</label><br>
+
+<input type="checkbox" id="constipation" name="digestive_issues[]" value="constipation">
+<label for="constipation">Constipation</label><br>
+
+<input type="checkbox" id="pain" name="digestive_issues[]" value="pain">
+<label for="pain">Pain</label><br>
+
+<input type="checkbox" id="stomach_issues" name="digestive_issues[]" value="stomach_issues">
+<label for="stomach_issues">Stomach issues</label><br>
+
   <button type="submit">Submit</button>
 </form>
-
 
 <section>
   <ul class="actions stacked">
