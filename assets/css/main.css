@@ -3705,3 +3705,34 @@ input[type="checkbox"] + label {
 		}
 
 		
+		.slider-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.slider-row label {
+  width: 120px;
+  margin-right: 0.75rem;
+}
+
+.slider-wrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 0.5rem;
+}
+
+.slider-wrapper input[type="range"] {
+  flex: 1;
+  margin: 0 !important;
+  display: block !important;
+}
+
+.slider-min,
+.slider-max {
+  width: 20px;
+  text-align: center;
+  font-weight: bold;
+  flex-shrink: 0;
+}
