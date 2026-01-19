@@ -3705,7 +3705,7 @@ input[type="checkbox"] + label {
 		}
 
 		
-/* ===== Slider layout override for HTML5 UP ===== */
+/* ===== HARD OVERRIDE FOR HTML5 UP RANGE SLIDERS ===== */
 
 .slider-row {
   display: flex;
@@ -3714,20 +3714,24 @@ input[type="checkbox"] + label {
 }
 
 .slider-row label {
-  width: 120px;        /* aligns all labels */
+  width: 120px;
   margin-right: 0.75rem;
+  flex-shrink: 0;
 }
 
 .slider-wrapper {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  max-width: 280px;    /* ← controls slider length */
-  width: 100%;
+
+  /* CRITICAL */
+  width: 260px;        /* <- THIS controls slider length */
+  flex: none;          /* <- prevents stretching */
 }
 
 .slider-wrapper input[type="range"] {
-  flex: 1;
+  width: 180px !important;  /* <- HARD limit */
+  max-width: 180px !important;
   margin: 0 !important;
   display: block !important;
 }
@@ -3737,21 +3741,4 @@ input[type="checkbox"] + label {
   width: 20px;
   text-align: center;
   font-weight: bold;
-  flex-shrink: 0;
-}
-
-@media (max-width: 600px) {
-  .slider-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .slider-wrapper {
-    max-width: 100%;
-  }
-
-  .slider-row label {
-    width: auto;
-    margin-bottom: 0.25rem;
-  }
 }
