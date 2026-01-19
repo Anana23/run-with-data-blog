@@ -15,7 +15,8 @@
 
 		<script data-goatcounter="https://runwithdata.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
-         
+
+	
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -81,114 +82,158 @@
 				<!-- Sidebar -->
 					<section id="sidebar">
 
-  <!-- Form to input text -->
-  <form id="input-form">
-    <label for="input-text">Comment: </label><br>
-    <textarea id="input-text" rows="4" cols="50" required></textarea><br><br>
+<form id="input-form">
 
-	  <!-- Slider with values -->
-  <label for="rating">Rating: <span id="rating-value"></span></label><br>
-  
- <div class="slider-container">
-    <span class="slider-label">0</span>
-    <input
-      type="range"
-      id="rating"
-      name="rating"
-      min="0"
-      max="5"
-      step="1"
-      value="3"
-    >
-    <span class="slider-label">5</span>
+  <!-- Intensity -->
+  <div class="slider-row">
+    <label for="intensity">Intensity (%):</label>
+    <div class="slider-wrapper">
+      <span class="slider-min">0</span>
+      <input type="range" id="intensity" name="intensity" min="0" max="100" step="1" value="50">
+      <span class="slider-max">100</span>
+    </div>
   </div>
-  <br><br>
+
+  <!-- Energy -->
+  <div class="slider-row">
+    <label for="energy">Energy:</label>
+    <div class="slider-wrapper">
+      <span class="slider-min">0</span>
+      <input type="range" id="energy" name="energy" min="0" max="5" step="1" value="3">
+      <span class="slider-max">5</span>
+    </div>
+  </div>
+
+  <!-- Hip pain -->
+  <div class="slider-row">
+    <label for="hip_pain">Hip pain:</label>
+    <div class="slider-wrapper">
+      <span class="slider-min">0</span>
+      <input type="range" id="hip_pain" name="hip_pain" min="0" max="5" step="1" value="3">
+      <span class="slider-max">5</span>
+    </div>
+  </div>
+
+  <!-- Knee pain -->
+  <div class="slider-row">
+    <label for="knee_pain">Knee pain:</label>
+    <div class="slider-wrapper">
+      <span class="slider-min">0</span>
+      <input type="range" id="knee_pain" name="knee_pain" min="0" max="5" step="1" value="3">
+      <span class="slider-max">5</span>
+    </div>
+  </div>
+
+  <!-- Digestive issues -->
+  <p>Digestive problems (select all that apply):</p>
+  <input type="checkbox" id="no" name="digestive_issues[]" value="no">
+  <label for="no">No</label><br>
+
+  <input type="checkbox" id="diarrhea" name="digestive_issues[]" value="diarrhea">
+  <label for="diarrhea">Diarrhea</label><br>
+
+  <input type="checkbox" id="constipation" name="digestive_issues[]" value="constipation">
+  <label for="constipation">Constipation</label><br>
+
+  <input type="checkbox" id="pain" name="digestive_issues[]" value="pain">
+  <label for="pain">Pain</label><br>
+
+  <input type="checkbox" id="stomach_issues" name="digestive_issues[]" value="stomach_issues">
+  <label for="stomach_issues">Stomach issues</label><br>
 
   <button type="submit">Submit</button>
+</form>
+
+
+<section>
+  <ul class="actions stacked">
+    <li><button id="logout-button" class="button large fit">Logout</button></li>
+  </ul>
+</section>
+
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+const supabase = createClient(
+  'https://lsnwqvvhecpltfygjuhw.supabase.co',
+  'sb_publishable_KH9p68D3_PevlnQJdYn_wg_T4SoN8bW'
+);
+
+// Redirect if not logged in
+supabase.auth.onAuthStateChange((event, session) => {
+  if (event === 'SIGNED_OUT' || !session) {
+    window.location.href = "login.html";
+  }
+});
+
+// Form submission
+document.getElementById('input-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const status = document.getElementById('status-message');
+
+  // Get the logged-in user
+  const { data: { user }, error: userError } = await supabase.auth.getUser();
+  if (userError || !user) {
+    status.textContent = "User not logged in";
+    status.style.color = "red";
+    return;
+  }
+
+  // Get all checked digestive issues
+  const issues = Array.from(
+    form.querySelectorAll('input[name="digestive_issues[]"]:checked')
+  ).map(cb => cb.value);
+
+  // Prepare data
+  const data = {
+    user_id: user.id,
+    intensity: parseInt(form.intensity.value),
+    energy: parseInt(form.energy.value),
+    hip_pain: parseInt(form.hip_pain.value),
+    knee_pain: parseInt(form.knee_pain.value),
+    digestive_issues: issues
+  };
+
+  // Insert into Supabase
+  const { error } = await supabase.from('workout_data').insert([data]);
+if (error) {
+    status.textContent = "Error: " + error.message;
+    status.style.color = "red";
+} else {
+    status.textContent = "Input saved!";
+    status.style.color = "green";
+    form.reset();
+}
+});
+
+// Logout
+document.getElementById('logout-button').addEventListener('click', async () => {
+  const { error } = await supabase.auth.signOut();
+  if (error) {
+    alert("Logout failed: " + error.message);
+  } else {
+    window.location.href = 'login.html';
+  }
+});
+</script>
+
+
 </form>
 
 <p id="status-message"></p>
 
 				<!-- Footer -->
 					<section id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
 						<p class="copyright">&copy; Ana Strinic, Website design template: <a href="http://html5up.net">HTML5 UP</a>. </p>
 					</section>
 
 			</section>
 
-  <!-- Logout Button -->
-  <button id="logout-button">Logout</button>
-
 			</div>
-
-
-  <!-- Importing Supabase JS SDK as an ES Module -->
-  <script type="module">
-    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-
-    // Initialize the Supabase client
-	export const supabase = createClient(
-  'https://lsnwqvvhecpltfygjuhw.supabase.co',
-  'sb_publishable_KH9p68D3_PevlnQJdYn_wg_T4SoN8bW'
-)
-
-    // Check if the user is authenticated
-    supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_OUT' || !session) {
-        window.location.href = "login.html"; // Redirect if not signed in
-      }
-    });
-
-    // Handle form submission
-      document.getElementById('input-form').addEventListener('submit', async (event) => {
-      event.preventDefault();  // Prevent the form from reloading the page
-
-      const inputText = document.getElementById('input-text').value.trim();
-      const statusMessage = document.getElementById('status-message');
-
-      if (inputText === '') {
-        statusMessage.textContent = 'Please enter some text!';
-        statusMessage.style.color = 'red';
-        return;
-      }
-
-      try {
-        // Insert the text into the `test_table`
-        const { data, error } = await supabase
-          .from('test_table')
-          .insert([{ content: inputText }]);  // Assuming the column is named `text_column`
-
-        if (error) {
-          console.error('Error inserting data:', error.message);
-          statusMessage.textContent = 'Error submitting text. Please try again.';
-          statusMessage.style.color = 'red';
-        } else {
-          console.log('Text inserted:', data);
-          statusMessage.textContent = 'Text successfully submitted!';
-          statusMessage.style.color = 'green';
-
-          // Clear the textarea
-          document.getElementById('input-text').value = '';
-        }
-      } catch (error) {
-        console.error('Unexpected error:', error.message);
-        statusMessage.textContent = 'Something went wrong. Please try again.';
-        statusMessage.style.color = 'red';
-      }
-    });
-
-	
-    // Logout function
-    document.getElementById('logout-button').addEventListener('click', async () => {
-      const { error } = await supabase.auth.signOut();
-      if (error) {
-        console.error('Error logging out:', error.message);
-        alert('Error logging out. Please try again.');
-      } else {
-        window.location.href = 'login.html'; // Redirect to login page after logout
-      }
-    });
-
 
   </script>
 </body>
