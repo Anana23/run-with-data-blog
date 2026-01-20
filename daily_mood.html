@@ -103,13 +103,13 @@
   <p>Time:</p>
 
   <input type="checkbox" id="morning" name="time[]" value="morning">
-  <label for="morning">Diarrhea</label><br>
+  <label for="morning">Morning</label><br>
 
   <input type="checkbox" id="afternoon" name="time[]" value="afternoon">
-  <label for="afternoon">Constipation</label><br>
+  <label for="afternoon">Afternoon</label><br>
 
   <input type="checkbox" id="evening" name="time[]" value="evening">
-  <label for="evening">Pain</label><br>
+  <label for="evening">Evening</label><br>
 
 
 <label for="mood">Mood:</label>
@@ -177,7 +177,7 @@ document.getElementById('input-form').addEventListener('submit', async (e) => {
   const data = {
     user_id: user.id,
     energy: parseInt(form.energy.value),
-    time: daytime,
+    day_time: daytime,
     mood: form.mood.value
   };
 
