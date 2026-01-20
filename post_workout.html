@@ -196,6 +196,10 @@ document.getElementById('input-form').addEventListener('submit', async (e) => {
     form.querySelectorAll('input[name="digestive_issues[]"]:checked')
   ).map(cb => cb.value);
 
+    // Get mood from dropdown
+  const moodSelect = form.querySelector('[name="mood"]');
+  const moodValue = moodSelect.value;
+  
   // Prepare data
   const data = {
     user_id: user.id,

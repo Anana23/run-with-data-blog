@@ -196,6 +196,10 @@ document.getElementById('input-form').addEventListener('submit', async (e) => {
     form.querySelectorAll('input[name="digestive_issues[]"]:checked')
   ).map(cb => cb.value);
 
+      // Get mood from dropdown
+  const moodSelect = form.querySelector('[name="mood"]');
+  const moodValue = moodSelect.value;
+  
   // Prepare data
   const data = {
     user_id: user.id,
@@ -203,7 +207,8 @@ document.getElementById('input-form').addEventListener('submit', async (e) => {
     energy: parseInt(form.energy.value),
     hip_pain: parseInt(form.hip_pain.value),
     knee_pain: parseInt(form.knee_pain.value),
-    digestive_issues: issues
+    digestive_issues: issues,
+    mood: form.mood.value
   };
 
   // Insert into Supabase
