@@ -82,6 +82,13 @@
 				<!-- Sidebar -->
 					<section id="sidebar">
 
+						<!-- Intro -->
+							<section id="intro">
+								<header>
+									<h2 style="font-size: 1.5em;">Run-with-data</h2>
+	
+								</header>
+							</section>
 <form id="input-form">
 
   <!-- Intensity -->
@@ -199,7 +206,7 @@ document.getElementById('input-form').addEventListener('submit', async (e) => {
     // Get mood from dropdown
   const moodSelect = form.querySelector('[name="mood"]');
   const moodValue = moodSelect.value;
-  
+
   // Prepare data
   const data = {
     user_id: user.id,
