@@ -80,7 +80,12 @@
 
 
 				<!-- Sidebar -->
-					<section id="sidebar">
+							<section id="intro">
+								<header>
+									<h2 style="font-size: 1.5em;">Pre run</h2>
+	
+								</header>
+							</section>
 
 <form id="input-form">
 
@@ -202,7 +207,7 @@ document.getElementById('input-form').addEventListener('submit', async (e) => {
       // Get mood from dropdown
   const moodSelect = form.querySelector('[name="mood"]');
   const moodValue = moodSelect.value;
-  
+
   // Prepare data
   const data = {
     user_id: user.id,
