@@ -91,10 +91,10 @@
 
   <!-- Intensity -->
   <div class="slider-row">
-    <label for="intensity">Energy (%):</label>
+    <label for="energy">Energy (%):</label>
     <div class="slider-wrapper">
       <span class="slider-min">0</span>
-      <input type="range" id="intensity" name="intensity" min="0" max="100" step="1" value="50">
+      <input type="range" id="energy" name="energy" min="0" max="100" step="1" value="50">
       <span class="slider-max">100</span>
     </div>
   </div>
@@ -134,6 +134,8 @@
     <li><button id="logout-button" class="button large fit">Logout</button></li>
   </ul>
 </section>
+
+<p id="status-message"></p>
 
 <script type="module">
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
@@ -204,10 +206,6 @@ document.getElementById('logout-button').addEventListener('click', async () => {
 });
 </script>
 
-
-</form>
-
-<p id="status-message"></p>
 
 				<!-- Footer -->
 					<section id="footer">
