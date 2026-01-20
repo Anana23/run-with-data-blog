@@ -90,14 +90,28 @@
 <form id="input-form">
 
   <!-- Intensity -->
-  <div class="slider-row">
-    <label for="energy">Energy (%):</label>
-    <div class="slider-wrapper">
-      <span class="slider-min">0</span>
-      <input type="range" id="energy" name="energy" min="0" max="100" step="1" value="50">
-      <span class="slider-max">100</span>
-    </div>
+
+<div class="slider-row">
+  <label for="energy">
+    Energy (%):
+    <strong><span id="energy-value">50</span>%</strong>
+  </label>
+
+  <div class="slider-wrapper">
+    <span class="slider-min">0</span>
+    <input
+      type="range"
+      id="energy"
+      name="energy"
+      min="0"
+      max="100"
+      step="1"
+      value="50"
+    >
+    <span class="slider-max">100</span>
   </div>
+</div>
+
 
   <!-- Digestive issues -->
   <p>Time:</p>
@@ -204,6 +218,15 @@ document.getElementById('logout-button').addEventListener('click', async () => {
     window.location.href = 'login.html';
   }
 });
+
+  const energySlider = document.getElementById('energy');
+  const energyValue = document.getElementById('energy-value');
+
+  energyValue.textContent = energySlider.value;
+
+  energySlider.addEventListener('input', () => {
+    energyValue.textContent = energySlider.value;
+  });
 </script>
 
 

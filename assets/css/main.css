@@ -3742,3 +3742,9 @@ input[type="checkbox"] + label {
   text-align: center;
   font-weight: bold;
 }
+
+.slider-row label strong {
+  margin-left: 0.5em;
+  color: #2ebaae;
+  font-weight: 600;
+}
