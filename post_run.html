@@ -76,93 +76,41 @@
 
 	<!-- Form -->
 	<form id="input-form">
-
-		<!-- Intensity -->
+    
 <div class="slider-row">
   <label for="intensity">Intensity (%)</label>
-
-  <div class="slider-line">
+  <div class="slider-value-row">
     <span class="slider-value">50%</span>
-
-    <div class="slider-wrapper">
-      <span class="slider-min">0</span>
-      <input
-        type="range"
-        id="intensity"
-        name="intensity"
-        min="0"
-        max="100"
-        step="1"
-        value="50"
-      >
-      <span class="slider-max">100</span>
-    </div>
+    <input type="range" id="intensity" name="intensity" min="0" max="100" step="1" value="50">
   </div>
 </div>
 
-		<!-- Energy -->
+
 <div class="slider-row">
   <label for="energy">Energy (%)</label>
-  <div class="slider-line">
-    <span class="slider-value">50%</span>
-    <div class="slider-wrapper">
-      <span class="slider-min">0</span>
-      <input
-        type="range"
-        id="energy"
-        name="energy"
-        min="0"
-        max="100"
-        step="1"
-        value="50"
-      >
-      <span class="slider-max">100</span>
-    </div>
-  </div>
-</div>
-
-		<!-- Hip pain -->
-<div class="slider-row">
-  <label for="hip_pain">Hip pain </label>
-  <div class="slider-line">
-    <span class="slider-value">3</span>
-    <div class="slider-wrapper">
-      <span class="slider-min">0</span>
-      <input
-        type="range"
-        id="hip_pain"
-        name="hip_pain"
-        min="0"
-        max="5"
-        step="1"
-        value="3"
-      >
-      <span class="slider-max">5</span>
-    </div>
+  <div class="slider-value-row">
+    <span class="slider-value">50</span>
+    <input type="range" id="energy" name="energy" min="0" max="100" step="1" value="50">
   </div>
 </div>
 
 <div class="slider-row">
-  <label for="knee_pain">Knee pain </label>
-
-  <div class="slider-line">
-    <span class="slider-value">3</span>
-
-    <div class="slider-wrapper">
-      <span class="slider-min">0</span>
-      <input
-        type="range"
-        id="knee_pain"
-        name="knee_pain"
-        min="0"
-        max="5"
-        step="1"
-        value="3"
-      >
-      <span class="slider-max">5</span>
-    </div>
+  <label for="hip_pain">Hip Pain</label>
+  <div class="slider-value-row">
+    <span class="slider-value">2</span>
+    <input type="range" id="hip_pain" name="hip_pain" min="0" max="5" step="1" value="2">
   </div>
 </div>
+
+
+<div class="slider-row">
+  <label for="knee_pain">Knee Pain</label>
+  <div class="slider-value-row">
+    <span class="slider-value">1</span>
+    <input type="range" id="knee_pain" name="knee_pain" min="0" max="5" step="1" value="1">
+  </div>
+</div>
+
 
 		<!-- Digestive issues -->
 		<p>Digestive problems (select all that apply):</p>
@@ -283,15 +231,16 @@ document.getElementById('logout-button').addEventListener('click', async () => {
 // Show live values for all sliders
 document.querySelectorAll('.slider-row').forEach(row => {
   const slider = row.querySelector('input[type="range"]');
-  const valueSpan = row.querySelector('.slider-value');
+  const valueEl = row.querySelector('.slider-value');
 
-  const unit = slider.max === "100" ? "%" : "";
+  const unit = slider.max === "100" ? "%" : ""; // % only for 0-100 sliders
 
-  valueSpan.textContent = slider.value + unit;
+  const update = () => {
+    valueEl.textContent = slider.value + unit;
+  };
 
-  slider.addEventListener('input', () => {
-    valueSpan.textContent = slider.value + unit;
-  });
+  update();
+  slider.addEventListener('input', update);
 });
 
 </script>
