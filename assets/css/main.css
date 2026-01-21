@@ -3737,44 +3737,16 @@ input[type="checkbox"] + label {
   flex-shrink: 0;
 }
 
-/* Slider stretches to fill remaining space */
+/* Slider styling */
 .slider-value-row input[type="range"] {
-  flex: 1;
-  min-width: 0; /* Important for mobile */
+  flex: 1;           /* fills remaining space */
+  min-width: 0;      /* important for mobile */
+  max-width: 500px;  /* fixed width on PC */
 }
 
-/* Each slider row */
-.slider-row {
-  margin-bottom: 1.5em;
-}
-
-/* Label on its own line */
-.slider-row label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0.2em;
-}
-
-/* Value + slider container */
-.slider-value-row {
-  display: flex;
-  align-items: center;
-  gap: 0.75em;
-  width: 100%;
-  flex-wrap: wrap; /* Wrap on very small screens */
-}
-
-/* Actual value styling */
-.slider-value {
-  font-weight: 700;
-  color: #2ebaae; /* HTML5 UP turquoise */
-  width: 3ch;      /* fixed width to avoid jumping */
-  text-align: left;
-  flex-shrink: 0;
-}
-
-/* Slider stretches to fill remaining space */
-.slider-value-row input[type="range"] {
-  flex: 1;
-  min-width: 0; /* Important for mobile */
+/* Optional: center slider on very large screens */
+@media (min-width: 1200px) {
+  .slider-value-row {
+    justify-content: flex-start; 
+  }
 }

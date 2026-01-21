@@ -88,68 +88,39 @@
                 <form id="input-form">
 
                 <!-- Intensity -->
-                <div class="slider-row">
-                <label for="intensity">
-                    Intensity (%):
-                    <strong><span id="intensity-value">50</span>%</strong>
-                </label>
-
-                <div class="slider-wrapper">
-                    <span class="slider-min">0</span>
-                    <input
-                    type="range"
-                    id="intensity"
-                    name="intensity"
-                    min="0"
-                    max="100"
-                    step="1"
-                    value="50"
-                    >
-                    <span class="slider-max">100</span>
-                </div>
-                </div>
+<div class="slider-row">
+  <label for="intensity">Intensity (%)</label>
+  <div class="slider-value-row">
+    <span class="slider-value">50%</span>
+    <input type="range" id="intensity" name="intensity" min="0" max="100" step="1" value="50">
+  </div>
+</div>
 
 
-                <div class="slider-row">
-                <label for="energy">
-                    Energy (%):
-                    <strong><span id="energy-value">50</span>%</strong>
-                </label>
+<div class="slider-row">
+  <label for="energy">Energy (%)</label>
+  <div class="slider-value-row">
+    <span class="slider-value">50</span>
+    <input type="range" id="energy" name="energy" min="0" max="100" step="1" value="50">
+  </div>
+</div>
 
-                <div class="slider-wrapper">
-                    <span class="slider-min">0</span>
-                    <input
-                    type="range"
-                    id="energy"
-                    name="energy"
-                    min="0"
-                    max="100"
-                    step="1"
-                    value="50"
-                    >
-                    <span class="slider-max">100</span>
-                </div>
-                </div>
+<div class="slider-row">
+  <label for="hip_pain">Hip Pain</label>
+  <div class="slider-value-row">
+    <span class="slider-value">2</span>
+    <input type="range" id="hip_pain" name="hip_pain" min="0" max="5" step="1" value="2">
+  </div>
+</div>
 
-                <!-- Hip pain -->
-                <div class="slider-row">
-                    <label for="hip_pain">Hip pain:</label>
-                    <div class="slider-wrapper">
-                    <span class="slider-min">0</span>
-                    <input type="range" id="hip_pain" name="hip_pain" min="0" max="5" step="1" value="3">
-                    <span class="slider-max">5</span>
-                    </div>
-                </div>
 
-                <!-- Knee pain -->
-                <div class="slider-row">
-                    <label for="knee_pain">Knee pain:</label>
-                    <div class="slider-wrapper">
-                    <span class="slider-min">0</span>
-                    <input type="range" id="knee_pain" name="knee_pain" min="0" max="5" step="1" value="3">
-                    <span class="slider-max">5</span>
-                    </div>
-                </div>
+<div class="slider-row">
+  <label for="knee_pain">Knee Pain</label>
+  <div class="slider-value-row">
+    <span class="slider-value">1</span>
+    <input type="range" id="knee_pain" name="knee_pain" min="0" max="5" step="1" value="1">
+  </div>
+</div>
 
                 <!-- Digestive issues -->
                 <p>Digestive problems (select all that apply):</p>
@@ -262,19 +233,20 @@
             }
             });
 
-              const energySlider = document.getElementById('energy');
-  const energyValue = document.getElementById('energy-value');
-  energyValue.textContent = energySlider.value;
-  energySlider.addEventListener('input', () => {
-    energyValue.textContent = energySlider.value;
-  });
+// Show live values for all sliders
+document.querySelectorAll('.slider-row').forEach(row => {
+  const slider = row.querySelector('input[type="range"]');
+  const valueEl = row.querySelector('.slider-value');
 
-                const intensitySlider = document.getElementById('intensity');
-  const intensityValue = document.getElementById('intensity-value');
- intensityValue.textContent = intensitySlider.value;
-intensitySlider.addEventListener('input', () => {
-    intensityValue.textContent = intensitySlider.value;
-  });
+  const unit = slider.max === "100" ? "%" : ""; // % only for 0-100 sliders
+
+  const update = () => {
+    valueEl.textContent = slider.value + unit;
+  };
+
+  update();
+  slider.addEventListener('input', update);
+});
 
             </script>
 
