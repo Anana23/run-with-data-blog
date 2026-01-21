@@ -78,185 +78,218 @@
 
 					</section>
 
-<div class="inner"> 
 				<!-- Sidebar -->
-<section id="intro">
-    <header>
-        <h2 style="font-size: 1.5em;">Workout</h2>
-    </header>
-</section>
+                <section id="intro">
+                    <header>
+                        <h2 style="font-size: 1.5em;">Workout</h2>
+                    </header>
+                </section>
 
-<form id="input-form">
+                <form id="input-form">
 
-  <!-- Intensity -->
-  <div class="slider-row">
-    <label for="intensity">Intensity (%):</label>
-    <div class="slider-wrapper">
-      <span class="slider-min">0</span>
-      <input type="range" id="intensity" name="intensity" min="0" max="100" step="1" value="50">
-      <span class="slider-max">100</span>
-    </div>
-  </div>
+                <!-- Intensity -->
+                <div class="slider-row">
+                <label for="intensity">
+                    Intensity (%):
+                    <strong><span id="intensity-value">50</span>%</strong>
+                </label>
 
-  <!-- Energy -->
-  <div class="slider-row">
-    <label for="energy">Energy:</label>
-    <div class="slider-wrapper">
-      <span class="slider-min">0</span>
-      <input type="range" id="energy" name="energy" min="0" max="5" step="1" value="3">
-      <span class="slider-max">5</span>
-    </div>
-  </div>
-
-  <!-- Hip pain -->
-  <div class="slider-row">
-    <label for="hip_pain">Hip pain:</label>
-    <div class="slider-wrapper">
-      <span class="slider-min">0</span>
-      <input type="range" id="hip_pain" name="hip_pain" min="0" max="5" step="1" value="3">
-      <span class="slider-max">5</span>
-    </div>
-  </div>
-
-  <!-- Knee pain -->
-  <div class="slider-row">
-    <label for="knee_pain">Knee pain:</label>
-    <div class="slider-wrapper">
-      <span class="slider-min">0</span>
-      <input type="range" id="knee_pain" name="knee_pain" min="0" max="5" step="1" value="3">
-      <span class="slider-max">5</span>
-    </div>
-  </div>
-
-  <!-- Digestive issues -->
-  <p>Digestive problems (select all that apply):</p>
-  <input type="checkbox" id="no" name="digestive_issues[]" value="no">
-  <label for="no">No</label><br>
-
-  <input type="checkbox" id="diarrhea" name="digestive_issues[]" value="diarrhea">
-  <label for="diarrhea">Diarrhea</label><br>
-
-  <input type="checkbox" id="constipation" name="digestive_issues[]" value="constipation">
-  <label for="constipation">Constipation</label><br>
-
-  <input type="checkbox" id="pain" name="digestive_issues[]" value="pain">
-  <label for="pain">Pain</label><br>
-
-  <input type="checkbox" id="stomach_issues" name="digestive_issues[]" value="stomach_issues">
-  <label for="stomach_issues">Stomach issues</label><br>
-
-<label for="mood">Mood:</label>
-<select id="mood" name="mood" required>
-  <option value="">Select mood</option>
-  <option value="happy">Happy</option>
-  <option value="sad">Sad</option>
-  <option value="stressed">Stressed</option>
-  <option value="annoyed">Annoyed</option>
-  <option value="angry">Angry</option>
-  <option value="neutral">Neutral</option>
-</select>
+                <div class="slider-wrapper">
+                    <span class="slider-min">0</span>
+                    <input
+                    type="range"
+                    id="intensity"
+                    name="intensity"
+                    min="0"
+                    max="100"
+                    step="1"
+                    value="50"
+                    >
+                    <span class="slider-max">100</span>
+                </div>
+                </div>
 
 
-  <button type="submit">Submit</button>
+                <div class="slider-row">
+                <label for="energy">
+                    Energy (%):
+                    <strong><span id="energy-value">50</span>%</strong>
+                </label>
 
-</form>
-</div>
+                <div class="slider-wrapper">
+                    <span class="slider-min">0</span>
+                    <input
+                    type="range"
+                    id="energy"
+                    name="energy"
+                    min="0"
+                    max="100"
+                    step="1"
+                    value="50"
+                    >
+                    <span class="slider-max">100</span>
+                </div>
+                </div>
 
-<section>
-  <ul class="actions stacked">
-    <li><button id="logout-button" class="button large fit">Logout</button></li>
-  </ul>
-</section>
+                <!-- Hip pain -->
+                <div class="slider-row">
+                    <label for="hip_pain">Hip pain:</label>
+                    <div class="slider-wrapper">
+                    <span class="slider-min">0</span>
+                    <input type="range" id="hip_pain" name="hip_pain" min="0" max="5" step="1" value="3">
+                    <span class="slider-max">5</span>
+                    </div>
+                </div>
 
-<script type="module">
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+                <!-- Knee pain -->
+                <div class="slider-row">
+                    <label for="knee_pain">Knee pain:</label>
+                    <div class="slider-wrapper">
+                    <span class="slider-min">0</span>
+                    <input type="range" id="knee_pain" name="knee_pain" min="0" max="5" step="1" value="3">
+                    <span class="slider-max">5</span>
+                    </div>
+                </div>
 
-const supabase = createClient(
-  'https://lsnwqvvhecpltfygjuhw.supabase.co',
-  'sb_publishable_KH9p68D3_PevlnQJdYn_wg_T4SoN8bW'
-);
+                <!-- Digestive issues -->
+                <p>Digestive problems (select all that apply):</p>
+                <input type="checkbox" id="no" name="digestive_issues[]" value="no">
+                <label for="no">No</label><br>
 
-// Redirect if not logged in
-supabase.auth.onAuthStateChange((event, session) => {
-  if (event === 'SIGNED_OUT' || !session) {
-    window.location.href = "login.html";
-  }
-});
+                <input type="checkbox" id="diarrhea" name="digestive_issues[]" value="diarrhea">
+                <label for="diarrhea">Diarrhea</label><br>
 
-// Form submission
-document.getElementById('input-form').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const form = e.target;
-  const status = document.getElementById('status-message');
+                <input type="checkbox" id="constipation" name="digestive_issues[]" value="constipation">
+                <label for="constipation">Constipation</label><br>
 
-  // Get the logged-in user
-  const { data: { user }, error: userError } = await supabase.auth.getUser();
-  if (userError || !user) {
-    status.textContent = "User not logged in";
-    status.style.color = "red";
-    return;
-  }
+                <input type="checkbox" id="pain" name="digestive_issues[]" value="pain">
+                <label for="pain">Pain</label><br>
 
-  // Get all checked digestive issues
-  const issues = Array.from(
-    form.querySelectorAll('input[name="digestive_issues[]"]:checked')
-  ).map(cb => cb.value);
+                <input type="checkbox" id="stomach_issues" name="digestive_issues[]" value="stomach_issues">
+                <label for="stomach_issues">Stomach issues</label><br>
 
-    // Get mood from dropdown
-  const moodSelect = form.querySelector('[name="mood"]');
-  const moodValue = moodSelect.value;
-
-  // Prepare data
-  const data = {
-    user_id: user.id,
-    intensity: parseInt(form.intensity.value),
-    energy: parseInt(form.energy.value),
-    hip_pain: parseInt(form.hip_pain.value),
-    knee_pain: parseInt(form.knee_pain.value),
-    digestive_issues: issues,
-    mood: form.mood.value
-  };
-
-  // Insert into Supabase
-  const { error } = await supabase.from('workout_data').insert([data]);
-if (error) {
-    status.textContent = "Error: " + error.message;
-    status.style.color = "red";
-} else {
-    status.textContent = "Input saved!";
-    status.style.color = "green";
-    form.reset();
-}
-});
-
-// Logout
-document.getElementById('logout-button').addEventListener('click', async () => {
-  const { error } = await supabase.auth.signOut();
-  if (error) {
-    alert("Logout failed: " + error.message);
-  } else {
-    window.location.href = 'login.html';
-  }
-});
-</script>
+                <label for="mood">Mood:</label>
+                <select id="mood" name="mood" required>
+                <option value="">Select mood</option>
+                <option value="happy">Happy</option>
+                <option value="sad">Sad</option>
+                <option value="stressed">Stressed</option>
+                <option value="annoyed">Annoyed</option>
+                <option value="angry">Angry</option>
+                <option value="neutral">Neutral</option>
+                </select>
 
 
-</form>
+                <button type="submit">Submit</button>
 
-<p id="status-message"></p>
+            </form>
 
-				<!-- Footer -->
-					<section id="footer">
-						<ul class="icons">
-							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
-						<p class="copyright">&copy; Ana Strinic, Website design template: <a href="http://html5up.net">HTML5 UP</a>. </p>
-					</section>
 
-			</section>
+            <section>
+            <ul class="actions stacked">
+                <li><button id="logout-button" class="button large fit">Logout</button></li>
+            </ul>
+            </section>
 
-			</div>
+            <script type="module">
+            import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
-  </script>
+            const supabase = createClient(
+            'https://lsnwqvvhecpltfygjuhw.supabase.co',
+            'sb_publishable_KH9p68D3_PevlnQJdYn_wg_T4SoN8bW'
+            );
+
+            // Redirect if not logged in
+            supabase.auth.onAuthStateChange((event, session) => {
+            if (event === 'SIGNED_OUT' || !session) {
+                window.location.href = "login.html";
+            }
+            });
+
+            // Form submission
+            document.getElementById('input-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const status = document.getElementById('status-message');
+
+            // Get the logged-in user
+            const { data: { user }, error: userError } = await supabase.auth.getUser();
+            if (userError || !user) {
+                status.textContent = "User not logged in";
+                status.style.color = "red";
+                return;
+            }
+
+            // Get all checked digestive issues
+            const issues = Array.from(
+                form.querySelectorAll('input[name="digestive_issues[]"]:checked')
+            ).map(cb => cb.value);
+
+                // Get mood from dropdown
+            const moodSelect = form.querySelector('[name="mood"]');
+            const moodValue = moodSelect.value;
+
+            // Prepare data
+            const data = {
+                user_id: user.id,
+                intensity: parseInt(form.intensity.value),
+                energy: parseInt(form.energy.value),
+                hip_pain: parseInt(form.hip_pain.value),
+                knee_pain: parseInt(form.knee_pain.value),
+                digestive_issues: issues,
+                mood: form.mood.value
+            };
+
+            // Insert into Supabase
+            const { error } = await supabase.from('workout_data').insert([data]);
+            if (error) {
+                status.textContent = "Error: " + error.message;
+                status.style.color = "red";
+            } else {
+                status.textContent = "Input saved!";
+                status.style.color = "green";
+                form.reset();
+            }
+            });
+
+            // Logout
+            document.getElementById('logout-button').addEventListener('click', async () => {
+            const { error } = await supabase.auth.signOut();
+            if (error) {
+                alert("Logout failed: " + error.message);
+            } else {
+                window.location.href = 'login.html';
+            }
+            });
+
+              const energySlider = document.getElementById('energy');
+  const energyValue = document.getElementById('energy-value');
+  energyValue.textContent = energySlider.value;
+  energySlider.addEventListener('input', () => {
+    energyValue.textContent = energySlider.value;
+  });
+
+                const intensitySlider = document.getElementById('intensity');
+  const intensityValue = document.getElementById('intensity-value');
+ intensityValue.textContent = intensitySlider.value;
+intensitySlider.addEventListener('input', () => {
+    intensityValue.textContent = intensitySlider.value;
+  });
+
+            </script>
+
+
+            <p id="status-message"></p>
+
+                        <!-- Footer -->
+                            <section id="footer">
+                                <ul class="icons">
+                                    <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+                                </ul>
+                                <p class="copyright">&copy; Ana Strinic, Website design template: <a href="http://html5up.net">HTML5 UP</a>. </p>
+                            </section>
+
+
+            </div>
 </body>
 </html>

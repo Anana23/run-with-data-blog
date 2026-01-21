@@ -2,263 +2,302 @@
 <!--
 	Future Imperfect by HTML5 UP
 	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Run-with-data</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<head>
+	<title>Run-with-data</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+</head>
 
-		<script data-goatcounter="https://runwithdata.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+<body class="is-preload">
 
-	
-		<!-- Wrapper -->
-			<div id="wrapper">
+<script data-goatcounter="https://runwithdata.goatcounter.com/count"
+	async src="//gc.zgo.at/count.js"></script>
 
-				<!-- Header -->
-					<header id="header">
-						<h1><a href="index.html">Run-with-data</a></h1>
-						<nav class="links">
-							<ul>
-								<li><a href="#">Running</a></li>
-								<li><a href="#">Data science</a></li>
-							</ul>
-						</nav>
-						<nav class="main">
-							<ul>
-								<li class="search">
-									<a class="fa-search" href="#search">Search</a>
-									<form id="search" method="get" action="#">
-										<input type="text" name="query" placeholder="Search" />
-									</form>
-								</li>
-								<li class="menu">
-									<a class="fa-bars" href="#menu">Menu</a>
-								</li>
-							</ul>
-						</nav>
-					</header>
+<!-- Wrapper -->
+<div id="wrapper">
 
-				<!-- Menu -->
-					<section id="menu">
+	<!-- Header -->
+	<header id="header">
+		<h1><a href="index.html">Run-with-data</a></h1>
+		<nav class="links">
+			<ul>
+				<li><a href="#">Running</a></li>
+				<li><a href="#">Data science</a></li>
+			</ul>
+		</nav>
+		<nav class="main">
+			<ul>
+				<li class="search">
+					<a class="fa-search" href="#search">Search</a>
+					<form id="search" method="get" action="#">
+						<input type="text" name="query" placeholder="Search" />
+					</form>
+				</li>
+				<li class="menu">
+					<a class="fa-bars" href="#menu">Menu</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
 
-						<!-- Search -->
-							<section>
-								<form class="search" method="get" action="#">
-									<input type="text" name="query" placeholder="Search" />
-								</form>
-							</section>
+	<!-- Menu -->
+	<section id="menu">
 
-						<!-- Links -->
-							<section>
-								<ul class="links">
-									<li>
-										<a href="#">
-											<h3>Running</h3>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<h3>Data science</h3>
-										</a>
-									</li>
-							</section>
+		<section>
+			<form class="search" method="get" action="#">
+				<input type="text" name="query" placeholder="Search" />
+			</form>
+		</section>
 
-						<!-- Actions -->
-							<section>
-								<ul class="actions stacked">
-									<li><a href="login.html" class="button large fit">Log In</a></li>
-								</ul>
-							</section>
+		<section>
+			<ul class="links">
+				<li><a href="#"><h3>Running</h3></a></li>
+				<li><a href="#"><h3>Data science</h3></a></li>
+			</ul>
+		</section>
 
-					</section>
+		<section>
+			<ul class="actions stacked">
+				<li><a href="login.html" class="button large fit">Log In</a></li>
+			</ul>
+		</section>
 
+	</section>
+
+	<!-- Intro -->
+	<section id="intro">
+		<header>
+			<h2 style="font-size: 1.5em;">Pre run</h2>
+		</header>
+	</section>
+
+	<!-- Form -->
+	<form id="input-form">
+
+<div class="slider-row">
+  <label for="motivation">
+    Motivation (%):
+    <strong><span class="slider-value">50</span></strong>
+  </label>
+
+  <div class="slider-wrapper">
+    <span class="slider-min">0</span>
+    <input
+      type="range"
+      id="motivation"
+      name="motivation"
+      min="0"
+      max="100"
+      step="1"
+      value="50"
+    >
+    <span class="slider-max">100</span>
   </div>
-<!-- Sidebar -->
-<section id="intro">
-  <header>
-    <h2 style="font-size: 1.5em;">Pre run</h2>
+</div>
 
-  </header>
+<div class="slider-row">
+  <label for="energy">
+    Energy (%):
+    <strong><span class="slider-value">50</span></strong>
+  </label>
 
-
-<form id="input-form">
-
-  <!-- Motivation -->
-  <div class="slider-row">
-    <label for="motivation">Motivation:</label>
-
-    <div class="slider-wrapper">
-      <span class="slider-min">0</span>
-      <input type="range" id="motivation" name="motivation" min="0" max="5" step="1" value="3">
-      <span class="slider-max">5</span>
-    </div>
+  <div class="slider-wrapper">
+    <span class="slider-min">0</span>
+    <input
+      type="range"
+      id="energy"
+      name="energy"
+      min="0"
+      max="10"
+      step="1"
+      value="50"
+    >
+    <span class="slider-max">100</span>
   </div>
+</div>
 
-  <!-- Energy -->
-  <div class="slider-row">
-    <label for="energy">Energy (%):</label>
-    <div class="slider-wrapper">
-      <span class="slider-min">0</span>
-      <input type="range" id="energy" name="energy" min="0" max="100" step="1" value="50">
-      <span class="slider-max">100</span>
-    </div>
+
+<div class="slider-row">
+  <label for="hip_pain>
+    Hip pain:
+    <strong><span class="slider-value">3</span></strong>
+  </label>
+
+  <div class="slider-wrapper">
+    <span class="slider-min">0</span>
+    <input
+      type="range"
+      id="hip_pain"
+      name="hip_pain"
+      min="0"
+      max="5"
+      step="1"
+      value="3"
+    >
+    <span class="slider-max">5</span>
   </div>
+</div>
 
-  <!-- Hip pain -->
-  <div class="slider-row">
-    <label for="hip_pain">Hip pain:</label>
 
-    <div class="slider-wrapper">
-      <span class="slider-min">0</span>
-      <input type="range" id="hip_pain" name="hip_pain" min="0" max="5" step="1" value="3">
-      <span class="slider-max">5</span>
-    </div>
+<div class="slider-row">
+  <label for="knee_pain>
+    Knee pain:
+    <strong><span class="slider-value">3</span></strong>
+  </label>
+
+  <div class="slider-wrapper">
+    <span class="slider-min">0</span>
+    <input
+      type="range"
+      id="knee_pain"
+      name="knee_pain"
+      min="0"
+      max="5"
+      step="1"
+      value="3"
+    >
+    <span class="slider-max">5</span>
   </div>
+</div>
 
-  <!-- Knee pain -->
-  <div class="slider-row">
-    <label for="knee_pain">Knee pain:</label>
+		<!-- Digestive problems -->
+		<p>Digestive problems (select all that apply):</p>
 
-    <div class="slider-wrapper">
-      <span class="slider-min">0</span>
-      <input type="range" id="knee_pain" name="knee_pain" min="0" max="5" step="1" value="3">
-      <span class="slider-max">5</span>
-    </div>
-  </div>
+		<input type="checkbox" id="no" name="digestive_issues[]" value="no">
+		<label for="no">No</label><br>
 
-  <!-- Digestive problems -->
-<p>Digestive problems (select all that apply):</p>
-<input type="checkbox" id="no" name="digestive_issues[]" value="no">
-<label for="no">No</label><br>
+		<input type="checkbox" id="diarrhea" name="digestive_issues[]" value="diarrhea">
+		<label for="diarrhea">Diarrhea</label><br>
 
-<input type="checkbox" id="diarrhea" name="digestive_issues[]" value="diarrhea">
-<label for="diarrhea">Diarrhea</label><br>
+		<input type="checkbox" id="constipation" name="digestive_issues[]" value="constipation">
+		<label for="constipation">Constipation</label><br>
 
-<input type="checkbox" id="constipation" name="digestive_issues[]" value="constipation">
-<label for="constipation">Constipation</label><br>
+		<input type="checkbox" id="pain" name="digestive_issues[]" value="pain">
+		<label for="pain">Pain</label><br>
 
-<input type="checkbox" id="pain" name="digestive_issues[]" value="pain">
-<label for="pain">Pain</label><br>
+		<input type="checkbox" id="stomach_issues" name="digestive_issues[]" value="stomach_issues">
+		<label for="stomach_issues">Stomach issues</label><br>
 
-<input type="checkbox" id="stomach_issues" name="digestive_issues[]" value="stomach_issues">
-<label for="stomach_issues">Stomach issues</label><br>
+		<!-- Mood -->
+		<label for="mood">Mood:</label>
+		<select id="mood" name="mood" required>
+			<option value="">Select mood</option>
+			<option value="happy">Happy</option>
+			<option value="sad">Sad</option>
+			<option value="stressed">Stressed</option>
+			<option value="annoyed">Annoyed</option>
+			<option value="angry">Angry</option>
+			<option value="neutral">Neutral</option>
+			<option value="tired">Tired</option>
+		</select>
 
-<label for="mood">Mood:</label>
-<select id="mood" name="mood" required>
-  <option value="">Select mood</option>
-  <option value="happy">Happy</option>
-  <option value="sad">Sad</option>
-  <option value="stressed">Stressed</option>
-  <option value="annoyed">Annoyed</option>
-  <option value="angry">Angry</option>
-  <option value="neutral">Neutral</option>
-</select>
+		<br><br>
+		<button type="submit">Submit</button>
 
+	</form>
 
-  <button type="submit">Submit</button>
-</form>
+	<!-- Logout -->
+	<section>
+		<ul class="actions stacked">
+			<li><button id="logout-button" class="button large fit">Logout</button></li>
+		</ul>
+	</section>
 
-</section>
+	<p id="status-message"></p>
 
-<section>
-  <ul class="actions stacked">
-    <li><button id="logout-button" class="button large fit">Logout</button></li>
-  </ul>
-</section>
+	<!-- Footer -->
+	<section id="footer">
+		<ul class="icons">
+			<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+		</ul>
+		<p class="copyright">
+			&copy; Ana Strinic. Design: <a href="http://html5up.net">HTML5 UP</a>.
+		</p>
+	</section>
 
+</div>
+
+<!-- Scripts -->
 <script type="module">
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
 const supabase = createClient(
-  'https://lsnwqvvhecpltfygjuhw.supabase.co',
-  'sb_publishable_KH9p68D3_PevlnQJdYn_wg_T4SoN8bW'
+	'https://lsnwqvvhecpltfygjuhw.supabase.co',
+	'sb_publishable_KH9p68D3_PevlnQJdYn_wg_T4SoN8bW'
 );
 
 // Redirect if not logged in
 supabase.auth.onAuthStateChange((event, session) => {
-  if (event === 'SIGNED_OUT' || !session) {
-    window.location.href = "login.html";
-  }
+	if (event === 'SIGNED_OUT' || !session) {
+		window.location.href = "login.html";
+	}
 });
 
-// Form submission
 document.getElementById('input-form').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const form = e.target;
-  const status = document.getElementById('status-message');
+	e.preventDefault();
+	const form = e.target;
+	const status = document.getElementById('status-message');
 
-  // Get the logged-in user
-  const { data: { user }, error: userError } = await supabase.auth.getUser();
-  if (userError || !user) {
-    status.textContent = "User not logged in";
-    status.style.color = "red";
-    return;
-  }
+	const { data: { user } } = await supabase.auth.getUser();
+	if (!user) {
+		status.textContent = "User not logged in";
+		status.style.color = "red";
+		return;
+	}
 
-  // Get all checked digestive issues
-  const issues = Array.from(
-    form.querySelectorAll('input[name="digestive_issues[]"]:checked')
-  ).map(cb => cb.value);
+	const issues = Array.from(
+		form.querySelectorAll('input[name="digestive_issues[]"]:checked')
+	).map(cb => cb.value);
 
-      // Get mood from dropdown
-  const moodSelect = form.querySelector('[name="mood"]');
-  const moodValue = moodSelect.value;
+	const data = {
+		user_id: user.id,
+		motivation: parseInt(form.motivation.value),
+		energy: parseInt(form.energy.value),
+		hip_pain: parseInt(form.hip_pain.value),
+		knee_pain: parseInt(form.knee_pain.value),
+		digestive_issues: issues,
+		mood: form.mood.value
+	};
 
-  // Prepare data
-  const data = {
-    user_id: user.id,
-    motivation: parseInt(form.motivation.value),
-    energy: parseInt(form.energy.value),
-    hip_pain: parseInt(form.hip_pain.value),
-    knee_pain: parseInt(form.knee_pain.value),
-    digestive_issues: issues,
-    mood: form.mood.value
-  };
+	const { error } = await supabase.from('pre_run_data').insert([data]);
 
-  // Insert into Supabase
-  const { error } = await supabase.from('pre_run_data').insert([data]);
-if (error) {
-    status.textContent = "Error: " + error.message;
-    status.style.color = "red";
-} else {
-    status.textContent = "Input saved!";
-    status.style.color = "green";
-    form.reset();
-}
+	if (error) {
+		status.textContent = "Error: " + error.message;
+		status.style.color = "red";
+	} else {
+		status.textContent = "Input saved!";
+		status.style.color = "green";
+		form.reset();
+	}
 });
 
 // Logout
 document.getElementById('logout-button').addEventListener('click', async () => {
-  const { error } = await supabase.auth.signOut();
-  if (error) {
-    alert("Logout failed: " + error.message);
-  } else {
-    window.location.href = 'login.html';
-  }
+	await supabase.auth.signOut();
+	window.location.href = 'login.html';
 });
+
+// Show live values for all sliders
+document.querySelectorAll('input[type="range"]').forEach(slider => {
+  const valueSpan = slider
+    .closest('.slider-row')
+    .querySelector('.slider-value');
+
+  // Set initial value
+  valueSpan.textContent = slider.value;
+
+  // Update on change
+  slider.addEventListener('input', () => {
+    valueSpan.textContent = slider.value;
+  });
+});
+
+
 </script>
 
 
-<p id="status-message"></p>
-
-				<!-- Footer -->
-					<section id="footer">
-						<ul class="icons">
-							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
-						<p class="copyright">&copy; Ana Strinic, Website design template: <a href="http://html5up.net">HTML5 UP</a>. </p>
-					</section>
-
-			</section>
-
-			</div>
-
-  </script>
 </body>
 </html>
