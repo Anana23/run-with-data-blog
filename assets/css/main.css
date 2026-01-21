@@ -3707,57 +3707,74 @@ input[type="checkbox"] + label {
 		
 /* ===== HARD OVERRIDE FOR HTML5 UP RANGE SLIDERS ===== */
 
+/* Each slider row */
 .slider-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5em;
 }
 
+/* Label on its own line */
 .slider-row label {
-  width: 120px;
-  margin-right: 0.75rem;
-  flex-shrink: 0;
-}
-
-.slider-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-
-  /* CRITICAL */
-  width: 260px;        /* <- THIS controls slider length */
-  flex: none;          /* <- prevents stretching */
-}
-
-.slider-wrapper input[type="range"] {
-  width: 180px !important;  /* <- HARD limit */
-  max-width: 180px !important;
-  margin: 0 !important;
-  display: block !important;
-}
-
-.slider-min,
-.slider-max {
-  width: 20px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.slider-row label strong {
-  margin-left: 0.5em;
-  color: #2ebaae;
+  display: block;
   font-weight: 600;
+  margin-bottom: 0.2em;
 }
 
-/* Slider + value in same line */
-.slider-line {
+/* Value + slider container */
+.slider-value-row {
   display: flex;
   align-items: center;
   gap: 0.75em;
-  max-width: 22em; /* adjust slider width */
+  width: 100%;
+  flex-wrap: wrap; /* Wrap on very small screens */
 }
 
-/* Slider stretches */
-.slider-line input[type="range"] {
+/* Actual value styling */
+.slider-value {
+  font-weight: 700;
+  color: #2ebaae; /* HTML5 UP turquoise */
+  width: 3ch;      /* fixed width to avoid jumping */
+  text-align: left;
+  flex-shrink: 0;
+}
+
+/* Slider stretches to fill remaining space */
+.slider-value-row input[type="range"] {
   flex: 1;
+  min-width: 0; /* Important for mobile */
+}
+
+/* Each slider row */
+.slider-row {
+  margin-bottom: 1.5em;
+}
+
+/* Label on its own line */
+.slider-row label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.2em;
+}
+
+/* Value + slider container */
+.slider-value-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  width: 100%;
+  flex-wrap: wrap; /* Wrap on very small screens */
+}
+
+/* Actual value styling */
+.slider-value {
+  font-weight: 700;
+  color: #2ebaae; /* HTML5 UP turquoise */
+  width: 3ch;      /* fixed width to avoid jumping */
+  text-align: left;
+  flex-shrink: 0;
+}
+
+/* Slider stretches to fill remaining space */
+.slider-value-row input[type="range"] {
+  flex: 1;
+  min-width: 0; /* Important for mobile */
 }
