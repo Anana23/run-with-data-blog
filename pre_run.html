@@ -78,88 +78,92 @@
 	<form id="input-form">
 
 <div class="slider-row">
-  <label for="motivation">
-    Motivation (%):
-    <strong><span class="slider-value">50</span></strong>
-  </label>
+  <label for="motivation">Motivation (%)</label>
 
-  <div class="slider-wrapper">
-    <span class="slider-min">0</span>
-    <input
-      type="range"
-      id="motivation"
-      name="motivation"
-      min="0"
-      max="100"
-      step="1"
-      value="50"
-    >
-    <span class="slider-max">100</span>
-  </div>
-</div>
+  <div class="slider-line">
+    <span class="slider-value">50%</span>
 
-<div class="slider-row">
-  <label for="energy">
-    Energy (%):
-    <strong><span class="slider-value">50</span></strong>
-  </label>
-
-  <div class="slider-wrapper">
-    <span class="slider-min">0</span>
-    <input
-      type="range"
-      id="energy"
-      name="energy"
-      min="0"
-      max="10"
-      step="1"
-      value="50"
-    >
-    <span class="slider-max">100</span>
+    <div class="slider-wrapper">
+      <span class="slider-min">0</span>
+      <input
+        type="range"
+        id="motivation"
+        name="motivation"
+        min="0"
+        max="100"
+        step="1"
+        value="50"
+      >
+      <span class="slider-max">100</span>
+    </div>
   </div>
 </div>
 
 
 <div class="slider-row">
-  <label for="hip_pain>
-    Hip pain:
-    <strong><span class="slider-value">3</span></strong>
-  </label>
+  <label for="energy">Energy (%)</label>
 
-  <div class="slider-wrapper">
-    <span class="slider-min">0</span>
-    <input
-      type="range"
-      id="hip_pain"
-      name="hip_pain"
-      min="0"
-      max="5"
-      step="1"
-      value="3"
-    >
-    <span class="slider-max">5</span>
+  <div class="slider-line">
+    <span class="slider-value">50%</span>
+
+    <div class="slider-wrapper">
+      <span class="slider-min">0</span>
+      <input
+        type="range"
+        id="energy"
+        name="energy"
+        min="0"
+        max="100"
+        step="1"
+        value="50"
+      >
+      <span class="slider-max">100</span>
+    </div>
+  </div>
+</div>
+
+<div class="slider-row">
+  <label for="hip_pain">Hip pain </label>
+
+  <div class="slider-line">
+    <span class="slider-value">3</span>
+
+    <div class="slider-wrapper">
+      <span class="slider-min">0</span>
+      <input
+        type="range"
+        id="hip_pain"
+        name="hip_pain"
+        min="0"
+        max="5"
+        step="1"
+        value="3"
+      >
+      <span class="slider-max">5</span>
+    </div>
   </div>
 </div>
 
 
 <div class="slider-row">
-  <label for="knee_pain>
-    Knee pain:
-    <strong><span class="slider-value">3</span></strong>
-  </label>
+  <label for="knee_pain">Knee pain </label>
 
-  <div class="slider-wrapper">
-    <span class="slider-min">0</span>
-    <input
-      type="range"
-      id="knee_pain"
-      name="knee_pain"
-      min="0"
-      max="5"
-      step="1"
-      value="3"
-    >
-    <span class="slider-max">5</span>
+  <div class="slider-line">
+    <span class="slider-value">3</span>
+
+    <div class="slider-wrapper">
+      <span class="slider-min">0</span>
+      <input
+        type="range"
+        id="knee_pain"
+        name="knee_pain"
+        min="0"
+        max="5"
+        step="1"
+        value="3"
+      >
+      <span class="slider-max">5</span>
+    </div>
   </div>
 </div>
 
@@ -280,18 +284,16 @@ document.getElementById('logout-button').addEventListener('click', async () => {
 	window.location.href = 'login.html';
 });
 
-// Show live values for all sliders
-document.querySelectorAll('input[type="range"]').forEach(slider => {
-  const valueSpan = slider
-    .closest('.slider-row')
-    .querySelector('.slider-value');
+document.querySelectorAll('.slider-row').forEach(row => {
+  const slider = row.querySelector('input[type="range"]');
+  const valueSpan = row.querySelector('.slider-value');
 
-  // Set initial value
-  valueSpan.textContent = slider.value;
+  const unit = slider.max === "100" ? "%" : "";
 
-  // Update on change
+  valueSpan.textContent = slider.value + unit;
+
   slider.addEventListener('input', () => {
-    valueSpan.textContent = slider.value;
+    valueSpan.textContent = slider.value + unit;
   });
 });
 
