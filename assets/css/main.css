@@ -3748,3 +3748,16 @@ input[type="checkbox"] + label {
   color: #2ebaae;
   font-weight: 600;
 }
+
+/* Slider + value in same line */
+.slider-line {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  max-width: 22em; /* adjust slider width */
+}
+
+/* Slider stretches */
+.slider-line input[type="range"] {
+  flex: 1;
+}
