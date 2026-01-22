@@ -160,6 +160,21 @@
 			<option value="high">High</option>
 		</select>
 
+    <br>
+		<!-- Food  -->
+		<p>Food (select all that apply):</p>
+		<input type="checkbox" id="no" name="food[]" value="no_food">
+		<label for="no_food">No food</label><br>
+
+		<input type="checkbox" id="coffee" name="food[]" value="coffee">
+		<label for="coffee">Coffee (< 2h before)</label><br>
+
+		<input type="checkbox" id="meal_lt_2h" name="food[]" value="meal_lt_2h">
+		<label for="meal_lt_2h">Meal (< 2h before)</label><br>
+
+		<input type="checkbox" id="meal_gt_2h" name="food[]" value="meal_gt_2h">
+		<label for="meal_gt_2h">Meal (> 2h before)</label><br>
+
 		<br><br>
 		<button type="submit">Submit</button>
 
@@ -218,6 +233,10 @@ document.getElementById('input-form').addEventListener('submit', async (e) => {
 		form.querySelectorAll('input[name="digestive_issues[]"]:checked')
 	).map(cb => cb.value);
 
+  	const food = Array.from(
+		form.querySelectorAll('input[name="food[]"]:checked')
+	).map(cb => cb.value);
+
 	const data = {
 		user_id: user.id,
 		motivation: parseInt(form.motivation.value),
@@ -225,6 +244,7 @@ document.getElementById('input-form').addEventListener('submit', async (e) => {
 		hip_pain: parseInt(form.hip_pain.value),
 		knee_pain: parseInt(form.knee_pain.value),
 		digestive_issues: issues,
+    food: food,
 		mood: form.mood.value,
     run_type: form.run_type.value,
     run_intensity: form.run_intensity.value
