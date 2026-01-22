@@ -87,7 +87,7 @@
 
 
 <div class="slider-row">
-  <label for="energy">Energy</label>
+  <label for="energy">Energy (%)</label>
   <div class="slider-value-row">
     <span class="slider-value">50</span>
     <input type="range" id="energy" name="energy" min="0" max="100" step="1" value="50">
@@ -133,13 +133,31 @@
 		<label for="mood">Mood:</label>
 		<select id="mood" name="mood" required>
 			<option value="">Select mood</option>
+      <option value="good">Good</option>
+      <option value="good">Anxious</option>
 			<option value="happy">Happy</option>
 			<option value="sad">Sad</option>
 			<option value="stressed">Stressed</option>
 			<option value="annoyed">Annoyed</option>
 			<option value="angry">Angry</option>
 			<option value="neutral">Neutral</option>
-			<option value="tired">Tired</option>
+		</select>
+
+    		<!-- Run type -->
+		<label for="run_type">Planned run type:</label>
+		<select id="run_type" name="run_type" required>
+			<option value="">Select run type</option>
+      <option value="short">Short (< 30 min)</option>
+      <option value="intermediate">Intermediate (30 - 60 min)</option>
+			<option value="long">Long (> 60 min)</option>
+		</select>
+
+    		<label for="run_intensity">Planned intensity:</label>
+		<select id="run_intensity" name="run_intensity" required>
+			<option value="">Select intensity</option>
+      <option value="low">Low</option>
+      <option value="intermediate">Intermediate</option>
+			<option value="high">High</option>
 		</select>
 
 		<br><br>
@@ -207,7 +225,9 @@ document.getElementById('input-form').addEventListener('submit', async (e) => {
 		hip_pain: parseInt(form.hip_pain.value),
 		knee_pain: parseInt(form.knee_pain.value),
 		digestive_issues: issues,
-		mood: form.mood.value
+		mood: form.mood.value,
+    run_type: form.run_type.value,
+    run_intensity: form.run_intensity.value
 	};
 
 	const { error } = await supabase.from('pre_run_data').insert([data]);
