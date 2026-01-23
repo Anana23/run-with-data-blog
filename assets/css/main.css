@@ -3750,3 +3750,23 @@ input[type="checkbox"] + label {
     justify-content: flex-start; 
   }
 }
+
+.auth-container {
+  max-width: 400px;      /* limits how wide it can get */
+  width: 100%;
+  margin: 2rem auto;     /* centers it horizontally */
+  padding: 1.5rem;
+}
+
+/* Make inputs behave nicely */
+.auth-container input {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
+/* Optional: buttons full width */
+.auth-container button {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
