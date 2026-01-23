@@ -3406,7 +3406,7 @@ input, select, textarea {
 		-ms-transition: opacity 0.5s ease;
 		transition: opacity 0.5s ease;
 		margin: 0 auto;
-		max-width: 100%;
+		max-width: 1200px;
 		opacity: 1;
 		padding: 4.5em;
 		width: 90em;
@@ -3769,4 +3769,33 @@ input[type="checkbox"] + label {
 .auth-container button {
   width: 100%;
   margin-bottom: 0.5rem;
+}
+
+/* Centered form card */
+.form-container {
+  max-width: 500px;      /* controls how wide the form can be */
+  width: 100%;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.1);
+}
+
+/* Make all inputs behave */
+.form-container input,
+.form-container select,
+.form-container button {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Space things nicely */
+.form-container label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.form-container p {
+  margin-top: 1.5rem;
 }
