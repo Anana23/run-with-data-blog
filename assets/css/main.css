@@ -3406,7 +3406,7 @@ input, select, textarea {
 		-ms-transition: opacity 0.5s ease;
 		transition: opacity 0.5s ease;
 		margin: 0 auto;
-		max-width: 1200px;
+		max-width: 70%;
 		opacity: 1;
 		padding: 4.5em;
 		width: 90em;
