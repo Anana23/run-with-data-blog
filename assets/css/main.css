@@ -3796,8 +3796,8 @@ input[type="checkbox"] + label {
 }
 
 .form_image {
-  max-width: 600px;
-  width: 600px;          /* IMPORTANT: prevents image from pushing text down */
+  max-width: 300px;
+  width: 300px;          /* IMPORTANT: prevents image from pushing text down */
   height: auto;
   border-radius: 0;
 }
