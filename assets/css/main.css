@@ -3810,3 +3810,53 @@ input[type="checkbox"] + label {
   }
 }
 
+/* Base table styling */
+.week table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px; /* Smaller text */
+}
+
+/* Header adjustments (abbreviate) */
+.week th {
+    padding: 6px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Mobile-specific tweaks */
+@media (max-width: 768px) {
+    .week th, .week td {
+        padding: 4px; /* Tighter spacing */
+    }
+
+    /* Abbreviate headers for mobile */
+    .week th:nth-child(2) { width: 50px; } /* Slow */
+    .week th:nth-child(3) { width: 60px; } /* Moderate */
+    .week th:nth-child(4) { width: 50px; } /* Fast */
+    .week th:nth-child(5) { width: 50px; } /* Long */
+    .week th:nth-child(6) { width: 50px; } /* Total */
+
+    /* Optional: Stack headers vertically (if space is critical) */
+    .week th {
+        writing-mode: vertical-rl; /* Rotate text 90° */
+    }
+}
+
+/* Remove extra spacing */
+.week tr {
+    border-bottom: 1px solid #ddd;
+}
+/* Ensure consistent alignment for all cells */
+.week th, .week td {
+    text-align: left; /* Force left alignment (or center/right) */
+    padding: 8px 10px; /* Equal padding for headers and cells */
+    vertical-align: middle; /* Align text vertically */
+}
+
+/* Optional: Highlight headers */
+.week th {
+    background-color: #f5f5f5; /* Light gray for headers */
+    font-weight: bold;
+}
+
