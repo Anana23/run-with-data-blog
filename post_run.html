@@ -80,19 +80,19 @@
   <form id="input-form">
 
 <div class="slider-row">
-  <label for="intensity">Intensity (%)</label>
+  <label for="intensity">Intensity</label>
   <div class="slider-value-row">
-    <span class="slider-value">50%</span>
-    <input type="range" id="intensity" name="intensity" min="0" max="100" step="1" value="50">
+    <span class="slider-value">3</span>
+    <input type="range" id="intensity" name="intensity" min="1" max="5" step="1" value="3">
   </div>
 </div>
 
 
 <div class="slider-row">
-  <label for="energy">Energy (%)</label>
+  <label for="energy">Energy</label>
   <div class="slider-value-row">
-    <span class="slider-value">50</span>
-    <input type="range" id="energy" name="energy" min="0" max="100" step="1" value="50">
+    <span class="slider-value">3</span>
+    <input type="range" id="energy" name="energy" min="1" max="5" step="1" value="3">
   </div>
 </div>
 
@@ -100,7 +100,7 @@
   <label for="hip_pain">Hip Pain</label>
   <div class="slider-value-row">
     <span class="slider-value">2</span>
-    <input type="range" id="hip_pain" name="hip_pain" min="0" max="5" step="1" value="2">
+    <input type="range" id="hip_pain" name="hip_pain" min="0" max="3" step="1" value="0">
   </div>
 </div>
 
@@ -109,7 +109,7 @@
   <label for="knee_pain">Knee Pain</label>
   <div class="slider-value-row">
     <span class="slider-value">1</span>
-    <input type="range" id="knee_pain" name="knee_pain" min="0" max="5" step="1" value="1">
+    <input type="range" id="knee_pain" name="knee_pain" min="0" max=3" step="1" value="0">
   </div>
 </div>
 
@@ -123,17 +123,20 @@
 		<input type="checkbox" id="diarrhea" name="digestive_issues[]" value="diarrhea">
 		<label for="diarrhea">Diarrhea</label><br>
 
-    <input type="checkbox" id="bloated" name="digestive_issues[]" value="bloated">
+   		<input type="checkbox" id="bloated" name="digestive_issues[]" value="bloated">
 		<label for="bloated">Bloated</label><br>
-
-		<input type="checkbox" id="cramps" name="digestive_issues[]" value="cramps">
-		<label for="cramps">Cramps</label><br>
 
 		<input type="checkbox" id="pain" name="digestive_issues[]" value="pain">
 		<label for="pain">Pain</label><br>
 
+		<input type="checkbox" id="cramps" name="digestive_issues[]" value="cramps">
+		<label for="pain">Cramps</label><br>
+
 		<input type="checkbox" id="stomach_issues" name="digestive_issues[]" value="stomach_issues">
 		<label for="stomach_issues">Stomach issues</label><br>
+
+		<input type="checkbox" id="enforced_stop" name="digestive_issues[]" value="enforced_stop">
+		<label for="enforced_stop">Enforced stop</label><br>
 
 		<!-- Mood -->
 		<label for="mood">Mood:</label>
@@ -154,9 +157,9 @@
 		<label for="run_type">Run type:</label>
 		<select id="run_type" name="run_type" required>
 			<option value="">Select run type</option>
-      <option value="short">Short (< 30 min)</option>
-      <option value="intermediate">Intermediate (30 - 60 min)</option>
-			<option value="long">Long (> 60 min)</option>
+      <option value="short">Short (< 6 km)</option>
+      <option value="intermediate">Intermediate (6 - 15 km)</option>
+			<option value="long">Long (> 15 km)</option>
 		</select>
 
   <br>

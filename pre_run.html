@@ -79,19 +79,19 @@
 	<form id="input-form">
 
 <div class="slider-row">
-  <label for="motivation">Motivation (%)</label>
+  <label for="motivation">Motivation</label>
   <div class="slider-value-row">
-    <span class="slider-value">50%</span>
-    <input type="range" id="motivation" name="motivation" min="0" max="100" step="1" value="50">
+    <span class="slider-value">3</span>
+    <input type="range" id="motivation" name="motivation" min="1" max="5" step="1" value="3">
   </div>
 </div>
 
 
 <div class="slider-row">
-  <label for="energy">Energy (%)</label>
+  <label for="energy">Energy</label>
   <div class="slider-value-row">
-    <span class="slider-value">50</span>
-    <input type="range" id="energy" name="energy" min="0" max="100" step="1" value="50">
+    <span class="slider-value">3</span>
+    <input type="range" id="energy" name="energy" min="1" max="5" step="1" value="3">
   </div>
 </div>
 
@@ -99,7 +99,7 @@
   <label for="hip_pain">Hip Pain</label>
   <div class="slider-value-row">
     <span class="slider-value">2</span>
-    <input type="range" id="hip_pain" name="hip_pain" min="0" max="5" step="1" value="2">
+    <input type="range" id="hip_pain" name="hip_pain" min="0" max="3" step="1" value="0">
   </div>
 </div>
 
@@ -108,7 +108,7 @@
   <label for="knee_pain">Knee Pain</label>
   <div class="slider-value-row">
     <span class="slider-value">1</span>
-    <input type="range" id="knee_pain" name="knee_pain" min="0" max="5" step="1" value="1">
+    <input type="range" id="knee_pain" name="knee_pain" min="0" max="3" step="1" value="0">
   </div>
 </div>
 
@@ -129,28 +129,15 @@
 
 		<input type="checkbox" id="stomach_issues" name="digestive_issues[]" value="stomach_issues">
 		<label for="stomach_issues">Stomach issues</label><br>
-
-		<!-- Mood -->
-		<label for="mood">Mood:</label>
-		<select id="mood" name="mood" required>
-			<option value="">Select mood</option>
-      <option value="good">Good</option>
-      <option value="anxious">Anxious</option>
-			<option value="happy">Happy</option>
-			<option value="sad">Sad</option>
-			<option value="stressed">Stressed</option>
-			<option value="annoyed">Annoyed</option>
-			<option value="angry">Angry</option>
-			<option value="neutral">Neutral</option>
-		</select>
 <br>
     		<!-- Run type -->
 		<label for="run_type">Planned run type:</label>
 		<select id="run_type" name="run_type" required>
-			<option value="">Select run type</option>
-      <option value="short">Short (< 30 min)</option>
-      <option value="intermediate">Intermediate (30 - 60 min)</option>
-			<option value="long">Long (> 60 min)</option>
+		<option value="">Select run type</option>
+        <option value="short">Short (< 6 km)</option>
+        <option value="intermediate">Intermediate (6 - 15 km)</option>
+		<option value="long">Long (> 15 km)</option>
+		<option value="intervals">Intervals</option>
 		</select>
 <br>
     		<label for="run_intensity">Planned intensity:</label>
@@ -158,23 +145,23 @@
 			<option value="">Select intensity</option>
       <option value="low">Low</option>
       <option value="intermediate">Intermediate</option>
-			<option value="high">High</option>
+	  <option value="high">High</option>
 		</select>
 
     <br>
 		<!-- Food  -->
 		<p>Food (select all that apply):</p>
-		<input type="checkbox" id="no" name="food[]" value="no_food">
+		<input type="checkbox" id="no" name="nutrition[]" value="no_food">
 		<label for="no_food">No food</label><br>
 
-		<input type="checkbox" id="coffee" name="food[]" value="coffee">
+		<input type="checkbox" id="coffee_lt_2h" name="nutrition[]" value="coffee_lt_2h">
 		<label for="coffee">Coffee (< 2h before)</label><br>
 
-		<input type="checkbox" id="meal_lt_2h" name="food[]" value="meal_lt_2h">
+		<input type="checkbox" id="meal_lt_2h" name="nutrition[]" value="meal_lt_2h">
 		<label for="meal_lt_2h">Meal (< 2h before)</label><br>
 
-		<input type="checkbox" id="meal_gt_2h" name="food[]" value="meal_gt_2h">
-		<label for="meal_gt_2h">Meal (> 2h before)</label><br>
+		<input type="checkbox" id="snack_lt_2h" name="nutrition[]" value="snack_lt_2h">
+		<label for="meal_gt_2h">Snack (< 2h before)</label><br>
 
 		<br><br>
 		<button type="submit">Submit</button>
