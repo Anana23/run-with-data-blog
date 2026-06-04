@@ -124,6 +124,9 @@
 		<input type="checkbox" id="bloated" name="digestive_issues[]" value="bloated">
 		<label for="bloated">Bloated</label><br>
 
+		<input type="checkbox" id="cramps" name="digestive_issues[]" value="cramps">
+		<label for="cramps">Cramps</label><br>
+
 		<input type="checkbox" id="pain" name="digestive_issues[]" value="pain">
 		<label for="pain">Pain</label><br>
 
@@ -151,7 +154,7 @@
     <br>
 		<!-- Food  -->
 		<p>Food (select all that apply):</p>
-		<input type="checkbox" id="no" name="nutrition[]" value="no_food">
+		<input type="checkbox" id="no_food" name="nutrition[]" value="no_food">
 		<label for="no_food">No food</label><br>
 
 		<input type="checkbox" id="coffee_lt_2h" name="nutrition[]" value="coffee_lt_2h">
@@ -221,8 +224,8 @@ document.getElementById('input-form').addEventListener('submit', async (e) => {
 		form.querySelectorAll('input[name="digestive_issues[]"]:checked')
 	).map(cb => cb.value);
 
-  	const food = Array.from(
-		form.querySelectorAll('input[name="food[]"]:checked')
+  	const nutrition = Array.from(
+		form.querySelectorAll('input[name="nutrition[]"]:checked')
 	).map(cb => cb.value);
 
 	const data = {
@@ -232,10 +235,9 @@ document.getElementById('input-form').addEventListener('submit', async (e) => {
 		hip_pain: parseInt(form.hip_pain.value),
 		knee_pain: parseInt(form.knee_pain.value),
 		digestive_issues: issues,
-    food: food,
-		mood: form.mood.value,
-    run_type: form.run_type.value,
-    run_intensity: form.run_intensity.value
+    	nutrition: nutrition,
+	    run_type: form.run_type.value,
+	    run_intensity: form.run_intensity.value
 	};
 
 	const { error } = await supabase.from('pre_run_data').insert([data]);
