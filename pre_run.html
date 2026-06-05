@@ -263,6 +263,9 @@ document.querySelectorAll('.slider-row').forEach(row => {
   const slider = row.querySelector('input[type="range"]');
   const valueEl = row.querySelector('.slider-value');
 
+  const unit = slider.max === "100" ? "%" : ""; // % only for 0-100 sliders
+
+
   const update = () => {
     valueEl.textContent = slider.value + unit;
   };
