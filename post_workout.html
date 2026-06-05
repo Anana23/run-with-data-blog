@@ -114,27 +114,6 @@
   </div>
 </div>
 
-                <!-- Digestive issues -->
-                <p>Digestive problems (select all that apply):</p>
-                <input type="checkbox" id="no" name="digestive_issues[]" value="no">
-                <label for="no">No</label><br>
-
-                <input type="checkbox" id="diarrhea" name="digestive_issues[]" value="diarrhea">
-                <label for="diarrhea">Diarrhea</label><br>
-
-                <input type="checkbox" id="bloated" name="digestive_issues[]" value="bloated">
-                <label for="bloated">Bloated</label><br>
-
-                <input type="checkbox" id="pain" name="digestive_issues[]" value="pain">
-                <label for="pain">Pain</label><br>
-
-                <input type="checkbox" id="cramps" name="digestive_issues[]" value="cramps">
-                <label for="cramps">Cramps</label><br>
-
-                <input type="checkbox" id="stomach_issues" name="digestive_issues[]" value="stomach_issues">
-                <label for="stomach_issues">Stomach issues</label><br>
-
-
                 <!-- Workout type -->
                 <p>Workout type (select all that apply):</p>
                 <input type="checkbox" id="arms" name="workout_type[]" value="arms">
@@ -205,10 +184,6 @@
                 return;
             }
 
-            // Get all checked digestive issues
-            const issues = Array.from(
-                form.querySelectorAll('input[name="digestive_issues[]"]:checked')
-            ).map(cb => cb.value);
 
             // Get all checked workout types
             const workouts = Array.from(
@@ -222,8 +197,7 @@
                 motivation: parseInt(form.motivation.value),
                 hip_pain: parseInt(form.hip_pain.value),
                 knee_pain: parseInt(form.knee_pain.value),
-                digestive_issues: issues,
-                workout_type: workouts,
+                workout_type: workouts
             };
 
             // Insert into Supabase
