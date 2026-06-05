@@ -80,7 +80,7 @@
   <form id="input-form">
 
 <div class="slider-row">
-  <label for="hip_pain">Hip Pain (0 - 3)</label>
+  <label for="hip_pain">Hip Pain (0-3)</label>
   <div class="slider-value-row">
     <span class="slider-value">0</span>
     <input type="range" id="hip_pain" name="hip_pain" min="0" max="3" step="1" value="0">
@@ -89,10 +89,10 @@
 
 
 <div class="slider-row">
-  <label for="knee_pain">Knee Pain (0 - 3)</label>
+  <label for="knee_pain">Knee Pain (0-3)</label>
   <div class="slider-value-row">
     <span class="slider-value">0</span>
-    <input type="range" id="knee_pain" name="knee_pain" min="0" max=3" step="1" value="0">
+    <input type="range" id="knee_pain" name="knee_pain" min="0" max="3" step="1" value="0">
   </div>
 </div>
 
@@ -202,8 +202,6 @@ document.getElementById('input-form').addEventListener('submit', async (e) => {
 
 	const data = {
 		user_id: user.id,
-		intensity: parseInt(form.intensity.value),
-		energy: parseInt(form.energy.value),
 		hip_pain: parseInt(form.hip_pain.value),
 		knee_pain: parseInt(form.knee_pain.value),
 		digestive_issues: issues,
@@ -233,8 +231,6 @@ document.getElementById('logout-button').addEventListener('click', async () => {
 document.querySelectorAll('.slider-row').forEach(row => {
   const slider = row.querySelector('input[type="range"]');
   const valueEl = row.querySelector('.slider-value');
-
-  const unit = slider.max === "100" ? "%" : ""; // % only for 0-100 sliders
 
   const update = () => {
     valueEl.textContent = slider.value + unit;
