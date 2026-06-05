@@ -78,39 +78,46 @@
 	<!-- Form -->
 	<form id="input-form">
 
-<div class="slider-row">
-  <label for="motivation">Motivation (1 - 5)</label>
-  <div class="slider-value-row">
-    <span class="slider-value">3</span>
-    <input type="range" id="motivation" name="motivation" min="1" max="5" step="1" value="3">
-  </div>
-</div>
+		<!-- Motivation-->
+		<label for="motivation">Motivation</label>
+		<select id="motivation" name="motivation" required>
+			<option value="">Select </option>
+      		<option value="no">No</option>
+      		<option value="intermediate">Low </option>
+			<option value="long">Intermediate</option>
+			<option value="intervals">High</option>
+		</select>
+
+		<!-- Energy-->
+		<label for="energy">Energy</label>
+		<select id="energy" name="energy" required>
+			<option value="">Select </option>
+      		<option value="no">No</option>
+      		<option value="intermediate">Low </option>
+			<option value="long">Intermediate</option>
+			<option value="intervals">High</option>
+		</select>
+
+		<!-- Hip pain-->
+		<label for="hip_pain">Hip pain</label>
+		<select id="hip_pain" name="hip_pain" required>
+			<option value="">Select </option>
+      		<option value="no">No</option>
+      		<option value="intermediate">Low </option>
+			<option value="long">Intermediate</option>
+			<option value="intervals">High</option>
+		</select>
 
 
-<div class="slider-row">
-  <label for="energy">Energy (1 - 5)</label>
-  <div class="slider-value-row">
-    <span class="slider-value">3</span>
-    <input type="range" id="energy" name="energy" min="1" max="5" step="1" value="3">
-  </div>
-</div>
-
-<div class="slider-row">
-  <label for="hip_pain">Hip Pain (0 - 3)</label>
-  <div class="slider-value-row">
-    <span class="slider-value">2</span>
-    <input type="range" id="hip_pain" name="hip_pain" min="0" max="3" step="1" value="0">
-  </div>
-</div>
-
-
-<div class="slider-row">
-  <label for="knee_pain">Knee Pain (0 - 3)</label>
-  <div class="slider-value-row">
-    <span class="slider-value">1</span>
-    <input type="range" id="knee_pain" name="knee_pain" min="0" max="3" step="1" value="0">
-  </div>
-</div>
+		<!-- Knee pain-->
+		<label for="knee_pain">Knee pain</label>
+		<select id="knee_pain" name="knee_pain" required>
+			<option value="">Select </option>
+      		<option value="no">No</option>
+      		<option value="intermediate">Low </option>
+			<option value="long">Intermediate</option>
+			<option value="intervals">High</option>
+		</select>
 
 		<!-- Digestive problems -->
 		<p>Digestive problems (select all that apply):</p>
@@ -136,7 +143,7 @@
     		<!-- Run type -->
 		<label for="run_type">Planned run type:</label>
 		<select id="run_type" name="run_type" required>
-		<option value="">Select run type</option>
+		<option value="">Select</option>
         <option value="short">Short (< 6 km)</option>
         <option value="intermediate">Intermediate (6 - 15 km)</option>
 		<option value="long">Long (> 15 km)</option>
@@ -145,7 +152,7 @@
 <br>
     		<label for="run_intensity">Planned intensity:</label>
 		<select id="run_intensity" name="run_intensity" required>
-		<option value="">Select intensity</option>
+		<option value="">Select</option>
       <option value="low">Low</option>
       <option value="intermediate">Intermediate</option>
 	  <option value="high">High</option>
@@ -230,10 +237,10 @@ document.getElementById('input-form').addEventListener('submit', async (e) => {
 
 	const data = {
 		user_id: user.id,
-		motivation: parseInt(form.motivation.value),
-		energy: parseInt(form.energy.value),
-		hip_pain: parseInt(form.hip_pain.value),
-		knee_pain: parseInt(form.knee_pain.value),
+		motivation: form.motivation.value,
+		energy: form.energy.value,
+		hip_pain: form.hip_pain.value,
+		knee_pain: form.knee_pain.value,
 		digestive_issues: issues,
     	nutrition: nutrition,
 	    run_type: form.run_type.value,
