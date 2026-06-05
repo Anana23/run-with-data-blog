@@ -89,27 +89,27 @@
 
                 <!-- Intensity -->
 <div class="slider-row">
-  <label for="intensity">Intensity (%)</label>
+  <label for="intensity">Motivation</label>
   <div class="slider-value-row">
-    <span class="slider-value">50%</span>
-    <input type="range" id="intensity" name="intensity" min="0" max="100" step="1" value="50">
+    <span class="slider-value">3</span>
+    <input type="range" id="intensity" name="intensity" min="1" max="5" step="1" value="3">
   </div>
 </div>
 
 
 <div class="slider-row">
-  <label for="energy">Energy (%)</label>
+  <label for="energy">Energy</label>
   <div class="slider-value-row">
-    <span class="slider-value">50</span>
-    <input type="range" id="energy" name="energy" min="0" max="100" step="1" value="50">
+    <span class="slider-value">3</span>
+    <input type="range" id="energy" name="energy" min="1" max="5" step="1" value="3>
   </div>
 </div>
 
 <div class="slider-row">
   <label for="hip_pain">Hip Pain</label>
   <div class="slider-value-row">
-    <span class="slider-value">2</span>
-    <input type="range" id="hip_pain" name="hip_pain" min="0" max="5" step="1" value="2">
+    <span class="slider-value">0</span>
+    <input type="range" id="hip_pain" name="hip_pain" min="0" max="3" step="1" value="0">
   </div>
 </div>
 
@@ -117,8 +117,8 @@
 <div class="slider-row">
   <label for="knee_pain">Knee Pain</label>
   <div class="slider-value-row">
-    <span class="slider-value">1</span>
-    <input type="range" id="knee_pain" name="knee_pain" min="0" max="5" step="1" value="1">
+    <span class="slider-value">0</span>
+    <input type="range" id="knee_pain" name="knee_pain" min="0" max="3" step="1" value="0">
   </div>
 </div>
 
@@ -130,27 +130,36 @@
                 <input type="checkbox" id="diarrhea" name="digestive_issues[]" value="diarrhea">
                 <label for="diarrhea">Diarrhea</label><br>
 
-                <input type="checkbox" id="constipation" name="digestive_issues[]" value="constipation">
-                <label for="constipation">Constipation</label><br>
+                <input type="checkbox" id="bloated" name="digestive_issues[]" value="bloated">
+                <label for="bloated">Bloated</label><br>
 
                 <input type="checkbox" id="pain" name="digestive_issues[]" value="pain">
                 <label for="pain">Pain</label><br>
 
+                <input type="checkbox" id="cramps" name="digestive_issues[]" value="cramps">
+                <label for="pain">Cramps</label><br>
+
                 <input type="checkbox" id="stomach_issues" name="digestive_issues[]" value="stomach_issues">
                 <label for="stomach_issues">Stomach issues</label><br>
 
-                <label for="mood">Mood:</label>
-                <select id="mood" name="mood" required>
-                <option value="">Select mood</option>
-                <option value="good">Good</option>
-                <option value="anxious">Anxious</option>
-                <option value="happy">Happy</option>
-                <option value="sad">Sad</option>
-                <option value="stressed">Stressed</option>
-                <option value="annoyed">Annoyed</option>
-                <option value="angry">Angry</option>
-                <option value="neutral">Neutral</option>
-                </select>
+
+                <!-- Workout type -->
+                <p>Workout type (select all that apply):</p>
+                <input type="checkbox" id="arms" name="workout_type[]" value="arms">
+                <label for="arms">Arms</label><br>
+
+                <input type="checkbox" id="legs" name="workout_type[]" value="legs">
+                <label for="legs">Legs</label><br>
+
+                <input type="checkbox" id="abs" name="workout_type[]" value="abs">
+                <label for="abs">Abs</label><br>
+
+                <input type="checkbox" id="glutes" name="workout_type[]" value="glutes">
+                <label for="glutes">Glutes</label><br>
+
+                <input type="checkbox" id="back" name="workout_type[]" value="back">
+                <label for="back">Back</label><br>
+
 
 	<br><br>
                 <button type="submit">Submit</button>
@@ -209,19 +218,21 @@
                 form.querySelectorAll('input[name="digestive_issues[]"]:checked')
             ).map(cb => cb.value);
 
-                // Get mood from dropdown
-            const moodSelect = form.querySelector('[name="mood"]');
-            const moodValue = moodSelect.value;
+            // Get all checked workout types
+            const workouts = Array.from(
+                form.querySelectorAll('input[name="workout_type[]"]:checked')
+            ).map(cb => cb.value);
+
 
             // Prepare data
             const data = {
                 user_id: user.id,
-                intensity: parseInt(form.intensity.value),
+                motivation: parseInt(form.motivation.value),
                 energy: parseInt(form.energy.value),
                 hip_pain: parseInt(form.hip_pain.value),
                 knee_pain: parseInt(form.knee_pain.value),
                 digestive_issues: issues,
-                mood: form.mood.value
+                workout_type: workouts,
             };
 
             // Insert into Supabase
