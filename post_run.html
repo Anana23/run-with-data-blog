@@ -79,36 +79,22 @@
 <section class="inner workout-content">
   <form id="input-form">
 
-		<!-- Energy-->
-		<label for="energy">Energy</label>
-		<select id="energy" name="energy" required>
-			<option value="">Select </option>
-      		<option value="no">No</option>
-      		<option value="intermediate">Low </option>
-			<option value="long">Intermediate</option>
-			<option value="intervals">High</option>
-		</select>
-
-		<!-- Hip pain-->
-		<label for="hip_pain">Hip pain</label>
-		<select id="hip_pain" name="hip_pain" required>
-			<option value="">Select </option>
-      		<option value="no">No</option>
-      		<option value="intermediate">Low </option>
-			<option value="long">Intermediate</option>
-			<option value="intervals">High</option>
-		</select>
+<div class="slider-row">
+  <label for="hip_pain">Hip Pain (0 - 3)</label>
+  <div class="slider-value-row">
+    <span class="slider-value">2</span>
+    <input type="range" id="hip_pain" name="hip_pain" min="0" max="3" step="1" value="0">
+  </div>
+</div>
 
 
-		<!-- Knee pain-->
-		<label for="knee_pain">Knee pain</label>
-		<select id="knee_pain" name="knee_pain" required>
-			<option value="">Select </option>
-      		<option value="no">No</option>
-      		<option value="intermediate">Low </option>
-			<option value="long">Intermediate</option>
-			<option value="intervals">High</option>
-		</select>
+<div class="slider-row">
+  <label for="knee_pain">Knee Pain (0 - 3)</label>
+  <div class="slider-value-row">
+    <span class="slider-value">1</span>
+    <input type="range" id="knee_pain" name="knee_pain" min="0" max=3" step="1" value="0">
+  </div>
+</div>
 
 
 		<!-- Digestive issues -->
@@ -216,9 +202,10 @@ document.getElementById('input-form').addEventListener('submit', async (e) => {
 
 	const data = {
 		user_id: user.id,
-		energy: form.energy.value,
-		hip_pain: form.hip_pain.value,
-		knee_pain: form.knee_pain.value,
+		intensity: parseInt(form.intensity.value),
+		energy: parseInt(form.energy.value),
+		hip_pain: parseInt(form.hip_pain.value),
+		knee_pain: parseInt(form.knee_pain.value),
 		digestive_issues: issues,
     	run_type: form.run_type.value,
     	run_intensity: form.run_intensity.value
