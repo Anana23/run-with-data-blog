@@ -3861,34 +3861,37 @@ input[type="checkbox"] + label {
 }
 
 
-.rating-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.rating-table th,
-.rating-table td {
-  padding: 10px;
-  text-align: center;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
+/* Hide native radio completely */
 .rating-table input[type="radio"] {
-  display: none;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
 
+/* Make the label a square box */
 .choice-box {
   display: inline-block;
   width: 22px;
   height: 22px;
-  border: 1px solid #999;
-  border-radius: 3px;
-  cursor: pointer;
+  border: 1px solid #aaa;
+  border-radius: 2px; /* square-ish */
   background: white;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+/* Hover / "touch feel" (light grey when hovered or pressed) */
+.choice-box:hover {
+  background: #e6e6e6;
+}
+
+/* Active press (when clicking) */
+.choice-box:active {
+  background: #d9d9d9;
 }
 
 /* Selected state */
 input[type="radio"]:checked + .choice-box {
-  background: black;
-  border-color: black;
+  background: #bfbfbf;
+  border-color: #bfbfbf;
 }
