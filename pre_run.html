@@ -81,45 +81,52 @@
 <table class="rating-table">
   <thead>
     <tr>
-      <th></th>
+      <th>Type of Information</th>
       <th>No</th>
       <th>Low</th>
       <th>Medium</th>
       <th>High</th>
     </tr>
   </thead>
+
   <tbody>
+
+    <!-- Motivation -->
     <tr>
       <td>Motivation</td>
-      <td><input type="radio" name="motivation" value="0" checked></td>
-      <td><input type="radio" name="motivation" value="1"></td>
-      <td><input type="radio" name="motivation" value="2"></td>
-      <td><input type="radio" name="motivation" value="3"></td>
+      <td><input type="radio" id="motivation_0" name="motivation" value="0"><label for="motivation_0" class="choice-box"></label></td>
+      <td><input type="radio" id="motivation_1" name="motivation" value="1"><label for="motivation_1" class="choice-box"></label></td>
+      <td><input type="radio" id="motivation_2" name="motivation" value="2"><label for="motivation_2" class="choice-box"></label></td>
+      <td><input type="radio" id="motivation_3" name="motivation" value="3"><label for="motivation_3" class="choice-box"></label></td>
     </tr>
 
+    <!-- Energy -->
     <tr>
       <td>Energy</td>
-      <td><input type="radio" name="energy" value="0" checked></td>
-      <td><input type="radio" name="energy" value="1"></td>
-      <td><input type="radio" name="energy" value="2"></td>
-      <td><input type="radio" name="energy" value="3"></td>
+      <td><input type="radio" id="energy_0" name="energy" value="0"><label for="energy_0" class="choice-box"></label></td>
+      <td><input type="radio" id="energy_1" name="energy" value="1"><label for="energy_1" class="choice-box"></label></td>
+      <td><input type="radio" id="energy_2" name="energy" value="2"><label for="energy_2" class="choice-box"></label></td>
+      <td><input type="radio" id="energy_3" name="energy" value="3"><label for="energy_3" class="choice-box"></label></td>
     </tr>
 
+    <!-- Hip Pain -->
     <tr>
       <td>Hip Pain</td>
-      <td><input type="radio" name="hip_pain" value="0" checked></td>
-      <td><input type="radio" name="hip_pain" value="1"></td>
-      <td><input type="radio" name="hip_pain" value="2"></td>
-      <td><input type="radio" name="hip_pain" value="3"></td>
+      <td><input type="radio" id="hip_pain_0" name="hip_pain" value="0"><label for="hip_pain_0" class="choice-box"></label></td>
+      <td><input type="radio" id="hip_pain_1" name="hip_pain" value="1"><label for="hip_pain_1" class="choice-box"></label></td>
+      <td><input type="radio" id="hip_pain_2" name="hip_pain" value="2"><label for="hip_pain_2" class="choice-box"></label></td>
+      <td><input type="radio" id="hip_pain_3" name="hip_pain" value="3"><label for="hip_pain_3" class="choice-box"></label></td>
     </tr>
 
+    <!-- Knee Pain -->
     <tr>
       <td>Knee Pain</td>
-      <td><input type="radio" name="knee_pain" value="0" checked></td>
-      <td><input type="radio" name="knee_pain" value="1"></td>
-      <td><input type="radio" name="knee_pain" value="2"></td>
-      <td><input type="radio" name="knee_pain" value="3"></td>
+      <td><input type="radio" id="knee_pain_0" name="knee_pain" value="0"><label for="knee_pain_0" class="choice-box"></label></td>
+      <td><input type="radio" id="knee_pain_1" name="knee_pain" value="1"><label for="knee_pain_1" class="choice-box"></label></td>
+      <td><input type="radio" id="knee_pain_2" name="knee_pain" value="2"><label for="knee_pain_2" class="choice-box"></label></td>
+      <td><input type="radio" id="knee_pain_3" name="knee_pain" value="3"><label for="knee_pain_3" class="choice-box"></label></td>
     </tr>
+
   </tbody>
 </table>
 
@@ -144,6 +151,7 @@
 
 		<input type="checkbox" id="stomach_issues" name="digestive_issues[]" value="stomach_issues">
 		<label for="stomach_issues">Stomach issues</label><br>
+
 <br>
     		<!-- Run type -->
 		<label for="run_type">Planned run type:</label>
