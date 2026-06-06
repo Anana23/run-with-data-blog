@@ -3860,3 +3860,29 @@ input[type="checkbox"] + label {
     font-weight: bold;
 }
 
+.rating-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.rating-table th,
+.rating-table td {
+  padding: 10px 12px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.rating-table th:first-child,
+.rating-table td:first-child {
+  text-align: left;
+  width: 40%;
+}
+
+.rating-table th {
+  font-weight: 600;
+}
+
+.rating-table input[type="radio"] {
+  cursor: pointer;
+}
