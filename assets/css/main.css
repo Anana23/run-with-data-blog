@@ -3896,3 +3896,12 @@ input[type="checkbox"] + label {
 .rating-table input[type="radio"]:checked {
   accent-color: #9e9e9e;   /* medium grey */
 }
+
+fieldset {
+    border: none;
+    padding: 0;
+}
+
+fieldset label {
+    margin-right: 20px;
+}
