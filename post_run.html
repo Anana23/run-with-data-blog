@@ -151,15 +151,32 @@
 
     <br>
 
-	
-<fieldset>
-    <legend>Run type:</legend>
 
-    <label><input type="radio" name="run_type" value="short" required> Short (&lt; 6 km)</label>
-    <label><input type="radio" name="run_type" value="intermediate"> Intermediate (6 - 15 km)</label>
-    <label><input type="radio" name="run_type" value="long"> Long (&gt; 15 km)</label>
-    <label><input type="radio" name="run_type" value="intervals"> Intervals</label>
-</fieldset>
+<div class="form-group">
+    <label>Run type:</label>
+
+    <div class="run-type-options">
+        <label>
+            <input type="radio" name="run_type" value="short" required>
+            Short (< 6 km)
+        </label>
+
+        <label>
+            <input type="radio" name="run_type" value="intermediate">
+            Intermediate (6 - 15 km)
+        </label>
+
+        <label>
+            <input type="radio" name="run_type" value="long">
+            Long (> 15 km)
+        </label>
+
+        <label>
+            <input type="radio" name="run_type" value="intervals">
+            Intervals
+        </label>
+    </div>
+</div>
 
   <br>
     		<label for="run_intensity">Run pace:</label>
