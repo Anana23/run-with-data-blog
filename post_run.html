@@ -95,11 +95,11 @@
 
     <!-- Motivation -->
     <tr>
-      <td>Intensity</td>
-      <td><input type="radio" id="intensity_0" name="intensity" value="0"><label for="intensity_0" class="choice-box"></label></td>
-      <td><input type="radio" id="intensity_1" name="intensity" value="1"><label for="intensity_1" class="choice-box"></label></td>
-      <td><input type="radio" id="intensity_2" name="intensity" value="2"><label for="intensity_2" class="choice-box"></label></td>
-      <td><input type="radio" id="intensity_3" name="intensity" value="3"><label for="intensity_3" class="choice-box"></label></td>
+      <td>Effort</td>
+      <td><input type="radio" id="motivation_0" name="motivation" value="0"><label for="motivation_0" class="choice-box"></label></td>
+      <td><input type="radio" id="motivation_1" name="motivation" value="1"><label for="motivation_1" class="choice-box"></label></td>
+      <td><input type="radio" id="motivation_2" name="motivation" value="2"><label for="motivation_2" class="choice-box"></label></td>
+      <td><input type="radio" id="motivation_3" name="motivation" value="3"><label for="motivation_3" class="choice-box"></label></td>
     </tr>
 
     <!-- Hip Pain -->
@@ -207,7 +207,7 @@ document.getElementById('input-form').addEventListener('submit', async (e) => {
 
 	const data = {
 		user_id: user.id,
-		intensity: parseInt(form.intensity.value),
+		intensity: parseInt(form.motivation.value),
 		hip_pain: parseInt(form.hip_pain.value),
 		knee_pain: parseInt(form.knee_pain.value),
 		digestive_issues: issues
