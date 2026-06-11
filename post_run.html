@@ -122,9 +122,6 @@
 
   </tbody>
 </table>
-
-
-
 		<!-- Digestive issues -->
 		<p>Digestive problems (select all that apply):</p>
 
@@ -152,9 +149,44 @@
     <br>
 
 
+<table class="rating-table">
+  <thead>
+    <tr>
+      <th>Run type</th>
+      <th>Short (&lt; 6 km)</th>
+      <th>Medium (6 - 15 km)</th>
+      <th>Long (&gt; 15 km)</th>
+      <th>Interval</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>Choose:</td>
+      <td>
+        <input type="radio" id="type_0" name="run_type" value="short" required>
+        <label for="type_0" class="choice-box"></label>
+      </td>
+      <td>
+        <input type="radio" id="type_1" name="run_type" value="intermediate">
+        <label for="type_1" class="choice-box"></label>
+      </td>
+      <td>
+        <input type="radio" id="type_2" name="run_type" value="long">
+        <label for="type_2" class="choice-box"></label>
+      </td>
+      <td>
+        <input type="radio" id="type_3" name="run_type" value="intervals">
+        <label for="type_3" class="choice-box"></label>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 <div class="form-group">
     <label>Run type:</label>
 
+	
     <div class="run-type-options">
         <label>
             <input type="radio" name="run_type" value="short" required>
