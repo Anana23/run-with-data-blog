@@ -149,20 +149,19 @@
     <br>
 
 
+<label class="table-label">Run type</label>
 <table class="rating-table">
   <thead>
     <tr>
-      <th>Run type</th>
-      <th>Short (&lt; 6 km)</th>
-      <th>Medium (6 - 15 km)</th>
-      <th>Long (&gt; 15 km)</th>
+      <th>Short <br>(&lt; 6 km)</th>
+      <th>Medium <br>(6 - 15 km)</th>
+      <th>Long <br>(&gt; 15 km)</th>
       <th>Interval</th>
     </tr>
   </thead>
 
   <tbody>
     <tr>
-      <td>Choose:</td>
       <td>
         <input type="radio" id="type_0" name="run_type" value="short" required>
         <label for="type_0" class="choice-box"></label>
@@ -183,41 +182,35 @@
   </tbody>
 </table>
 
-<div class="form-group">
-    <label>Run type:</label>
 
-	
-    <div class="run-type-options">
-        <label>
-            <input type="radio" name="run_type" value="short" required>
-            Short (< 6 km)
-        </label>
+<label class="table-label">Run pace:</label>
 
-        <label>
-            <input type="radio" name="run_type" value="intermediate">
-            Intermediate (6 - 15 km)
-        </label>
+<table class="rating-table">
+  <thead>
+    <tr>
+      <th>Low</th>
+      <th>Intermediate</th>
+      <th>High</th>
+    </tr>
+  </thead>
 
-        <label>
-            <input type="radio" name="run_type" value="long">
-            Long (> 15 km)
-        </label>
-
-        <label>
-            <input type="radio" name="run_type" value="intervals">
-            Intervals
-        </label>
-    </div>
-</div>
-
-  <br>
-    		<label for="run_intensity">Run pace:</label>
-		<select id="run_intensity" name="run_intensity" required>
-			<option value="">Select intensity</option>
-      <option value="low">Low</option>
-      <option value="intermediate">Intermediate</option>
-			<option value="high">High</option>
-		</select>
+  <tbody>
+    <tr>
+      <td>
+        <input type="radio" id="pace_0" name="run_intensity" value="low" required>
+        <label for="pace_0" class="choice-box"></label>
+      </td>
+      <td>
+        <input type="radio" id="pace_1" name="run_intensity" value="intermediate">
+        <label for="pace_1" class="choice-box"></label>
+      </td>
+      <td>
+        <input type="radio" id="pace_2" name="run_intensity" value="high">
+        <label for="pace_2" class="choice-box"></label>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 		<br><br>
 		<button type="submit">Submit</button>
