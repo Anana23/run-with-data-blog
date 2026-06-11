@@ -77,24 +77,51 @@
 
 	<!-- Form -->
 <section class="inner workout-content">
-  <form id="input-form">
+ 	<!-- Form -->
+	<form id="input-form">
 
-<div class="slider-row">
-  <label for="hip_pain">Hip Pain (0-3)</label>
-  <div class="slider-value-row">
-    <span class="slider-value">0</span>
-    <input type="range" id="hip_pain" name="hip_pain" min="0" max="3" step="1" value="0">
-  </div>
-</div>
+<table class="rating-table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>No</th>
+      <th>Low</th>
+      <th>Medium</th>
+      <th>High</th>
+    </tr>
+  </thead>
 
+  <tbody>
 
-<div class="slider-row">
-  <label for="knee_pain">Knee Pain (0-3)</label>
-  <div class="slider-value-row">
-    <span class="slider-value">0</span>
-    <input type="range" id="knee_pain" name="knee_pain" min="0" max="3" step="1" value="0">
-  </div>
-</div>
+    <!-- Motivation -->
+    <tr>
+      <td>Intensity</td>
+      <td><input type="radio" id="motivation_0" name="motivation" value="0"><label for="motivation_0" class="choice-box"></label></td>
+      <td><input type="radio" id="motivation_1" name="motivation" value="1"><label for="motivation_1" class="choice-box"></label></td>
+      <td><input type="radio" id="motivation_2" name="motivation" value="2"><label for="motivation_2" class="choice-box"></label></td>
+      <td><input type="radio" id="motivation_3" name="motivation" value="3"><label for="motivation_3" class="choice-box"></label></td>
+    </tr>
+
+    <!-- Hip Pain -->
+    <tr>
+      <td>Hip Pain</td>
+      <td><input type="radio" id="hip_pain_0" name="hip_pain" value="0"><label for="hip_pain_0" class="choice-box"></label></td>
+      <td><input type="radio" id="hip_pain_1" name="hip_pain" value="1"><label for="hip_pain_1" class="choice-box"></label></td>
+      <td><input type="radio" id="hip_pain_2" name="hip_pain" value="2"><label for="hip_pain_2" class="choice-box"></label></td>
+      <td><input type="radio" id="hip_pain_3" name="hip_pain" value="3"><label for="hip_pain_3" class="choice-box"></label></td>
+    </tr>
+
+    <!-- Knee Pain -->
+    <tr>
+      <td>Knee Pain</td>
+      <td><input type="radio" id="knee_pain_0" name="knee_pain" value="0"><label for="knee_pain_0" class="choice-box"></label></td>
+      <td><input type="radio" id="knee_pain_1" name="knee_pain" value="1"><label for="knee_pain_1" class="choice-box"></label></td>
+      <td><input type="radio" id="knee_pain_2" name="knee_pain" value="2"><label for="knee_pain_2" class="choice-box"></label></td>
+      <td><input type="radio" id="knee_pain_3" name="knee_pain" value="3"><label for="knee_pain_3" class="choice-box"></label></td>
+    </tr>
+
+  </tbody>
+</table>
 
 
 
@@ -134,7 +161,7 @@
 		</select>
 
   <br>
-    		<label for="run_intensity">Intensity during run:</label>
+    		<label for="run_intensity">Run pace:</label>
 		<select id="run_intensity" name="run_intensity" required>
 			<option value="">Select intensity</option>
       <option value="low">Low</option>
@@ -203,6 +230,7 @@ document.getElementById('input-form').addEventListener('submit', async (e) => {
 
 	const data = {
 		user_id: user.id,
+		intensity: parseInt(form.motivation).value,
 		hip_pain: parseInt(form.hip_pain.value),
 		knee_pain: parseInt(form.knee_pain.value),
 		digestive_issues: issues,

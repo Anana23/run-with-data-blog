@@ -85,40 +85,51 @@
                     </header>
                 </section>
 
-                <form id="input-form">
+                	<!-- Form -->
+	<form id="input-form">
 
-        <!-- Motivation -->
-		<label for="motivation">Motivation</label>
-		<select id="motivation" name="motivation" required>
-			<option value="">Select </option>
-      		<option value="no">No</option>
-      		<option value="intermediate">Low </option>
-			<option value="long">Intermediate</option>
-			<option value="intervals">High</option>
-		</select>
+<table class="rating-table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>No</th>
+      <th>Low</th>
+      <th>Medium</th>
+      <th>High</th>
+    </tr>
+  </thead>
 
+  <tbody>
 
-		<!-- Hip pain-->
-		<label for="hip_pain">Hip pain</label>
-		<select id="hip_pain" name="hip_pain" required>
-			<option value="">Select </option>
-      		<option value="no">No</option>
-      		<option value="intermediate">Low </option>
-			<option value="long">Intermediate</option>
-			<option value="intervals">High</option>
-		</select>
+    <!-- Motivation -->
+    <tr>
+      <td>Motivation</td>
+      <td><input type="radio" id="motivation_0" name="motivation" value="0"><label for="motivation_0" class="choice-box"></label></td>
+      <td><input type="radio" id="motivation_1" name="motivation" value="1"><label for="motivation_1" class="choice-box"></label></td>
+      <td><input type="radio" id="motivation_2" name="motivation" value="2"><label for="motivation_2" class="choice-box"></label></td>
+      <td><input type="radio" id="motivation_3" name="motivation" value="3"><label for="motivation_3" class="choice-box"></label></td>
+    </tr>
 
+    <!-- Hip Pain -->
+    <tr>
+      <td>Hip Pain</td>
+      <td><input type="radio" id="hip_pain_0" name="hip_pain" value="0"><label for="hip_pain_0" class="choice-box"></label></td>
+      <td><input type="radio" id="hip_pain_1" name="hip_pain" value="1"><label for="hip_pain_1" class="choice-box"></label></td>
+      <td><input type="radio" id="hip_pain_2" name="hip_pain" value="2"><label for="hip_pain_2" class="choice-box"></label></td>
+      <td><input type="radio" id="hip_pain_3" name="hip_pain" value="3"><label for="hip_pain_3" class="choice-box"></label></td>
+    </tr>
 
-		<!-- Knee pain-->
-		<label for="knee_pain">Knee pain</label>
-		<select id="knee_pain" name="knee_pain" required>
-			<option value="">Select </option>
-      		<option value="no">No</option>
-      		<option value="intermediate">Low </option>
-			<option value="long">Intermediate</option>
-			<option value="intervals">High</option>
-		</select>
+    <!-- Knee Pain -->
+    <tr>
+      <td>Knee Pain</td>
+      <td><input type="radio" id="knee_pain_0" name="knee_pain" value="0"><label for="knee_pain_0" class="choice-box"></label></td>
+      <td><input type="radio" id="knee_pain_1" name="knee_pain" value="1"><label for="knee_pain_1" class="choice-box"></label></td>
+      <td><input type="radio" id="knee_pain_2" name="knee_pain" value="2"><label for="knee_pain_2" class="choice-box"></label></td>
+      <td><input type="radio" id="knee_pain_3" name="knee_pain" value="3"><label for="knee_pain_3" class="choice-box"></label></td>
+    </tr>
 
+  </tbody>
+</table>
 
                 <!-- Workout type -->
                 <p>Workout type (select all that apply):</p>
