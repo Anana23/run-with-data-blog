@@ -96,10 +96,10 @@
     <!-- Motivation -->
     <tr>
       <td>Intensity</td>
-      <td><input type="radio" id="motivation_0" name="motivation" value="0"><label for="motivation_0" class="choice-box"></label></td>
-      <td><input type="radio" id="motivation_1" name="motivation" value="1"><label for="motivation_1" class="choice-box"></label></td>
-      <td><input type="radio" id="motivation_2" name="motivation" value="2"><label for="motivation_2" class="choice-box"></label></td>
-      <td><input type="radio" id="motivation_3" name="motivation" value="3"><label for="motivation_3" class="choice-box"></label></td>
+      <td><input type="radio" id="motivation_0" name="intensity" value="0"><label for="motivation_0" class="choice-box"></label></td>
+      <td><input type="radio" id="motivation_1" name="intensity" value="1"><label for="motivation_1" class="choice-box"></label></td>
+      <td><input type="radio" id="motivation_2" name="intensity" value="2"><label for="motivation_2" class="choice-box"></label></td>
+      <td><input type="radio" id="motivation_3" name="intensity" value="3"><label for="motivation_3" class="choice-box"></label></td>
     </tr>
 
     <!-- Hip Pain -->
@@ -145,73 +145,6 @@
 
 		<input type="checkbox" id="enforced_stop" name="digestive_issues[]" value="enforced_stop">
 		<label for="enforced_stop">Enforced stop</label><br>
-
-    <br>
-
-
-<table class="rating-table">
-  <thead>
-    <tr>
-		<th></th>
-      <th>Short <br>(&lt; 6 km)</th>
-      <th>Medium <br>(6 - 15 km)</th>
-      <th>Long <br>(&gt; 15 km)</th>
-      <th>Interval</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-		<td>Type</td>
-      <td>
-        <input type="radio" id="type_0" name="run_type" value="short" required>
-        <label for="type_0" class="choice-box"></label>
-      </td>
-      <td>
-        <input type="radio" id="type_1" name="run_type" value="intermediate">
-        <label for="type_1" class="choice-box"></label>
-      </td>
-      <td>
-        <input type="radio" id="type_2" name="run_type" value="long">
-        <label for="type_2" class="choice-box"></label>
-      </td>
-      <td>
-        <input type="radio" id="type_3" name="run_type" value="intervals">
-        <label for="type_3" class="choice-box"></label>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-
-<table class="rating-table">
-  <thead>
-    <tr>
-		<th></th>
-      <th>Low</th>
-      <th>Intermediate</th>
-      <th>High</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-		<td>Pace</td>
-      <td>
-        <input type="radio" id="pace_0" name="run_intensity" value="low" required>
-        <label for="pace_0" class="choice-box"></label>
-      </td>
-      <td>
-        <input type="radio" id="pace_1" name="run_intensity" value="intermediate">
-        <label for="pace_1" class="choice-box"></label>
-      </td>
-      <td>
-        <input type="radio" id="pace_2" name="run_intensity" value="high">
-        <label for="pace_2" class="choice-box"></label>
-      </td>
-    </tr>
-  </tbody>
-</table>
 
 		<br><br>
 		<button type="submit">Submit</button>
@@ -274,12 +207,10 @@ document.getElementById('input-form').addEventListener('submit', async (e) => {
 
 	const data = {
 		user_id: user.id,
-		intensity: parseInt(form.motivation).value,
+		intensity: parseInt(form.intensity).value,
 		hip_pain: parseInt(form.hip_pain.value),
 		knee_pain: parseInt(form.knee_pain.value),
-		digestive_issues: issues,
-    	run_type: form.run_type.value,
-    	run_intensity: form.run_intensity.value
+		digestive_issues: issues
 	};
 
 	const { error } = await supabase.from('post_run_data').insert([data]);
