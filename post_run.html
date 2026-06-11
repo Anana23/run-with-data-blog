@@ -150,15 +150,26 @@
 		<label for="enforced_stop">Enforced stop</label><br>
 
     <br>
-        		<!-- Run type -->
-		<label for="run_type">Run type:</label>
-		<select id="run_type" name="run_type" required>
-			<option value="">Select run type</option>
-      <option value="short">Short (< 6 km)</option>
-      <option value="intermediate">Intermediate (6 - 15 km)</option>
-			<option value="long">Long (> 15 km)</option>
-			<option value="intervals">Intervals</option>
-		</select>
+<!-- Run type -->
+<fieldset>
+    <legend>Run type:</legend>
+    <label>
+        <input type="radio" name="run_type" value="short" required>
+        Short (&lt; 6 km)
+    </label><br>
+    <label>
+        <input type="radio" name="run_type" value="intermediate">
+        Intermediate (6 - 15 km)
+    </label><br>
+    <label>
+        <input type="radio" name="run_type" value="long">
+        Long (&gt; 15 km)
+    </label><br>
+    <label>
+        <input type="radio" name="run_type" value="intervals">
+        Intervals
+    </label>
+</fieldset>
 
   <br>
     		<label for="run_intensity">Run pace:</label>
